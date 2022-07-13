@@ -1,5 +1,7 @@
 <?php
 
+// Affiche le contenue de la page d'accueil 
+
 // Class PageInfo : $title $user(db user)
 
 // Contenu à afficher 
@@ -7,6 +9,8 @@
 // Appeler le layout html
 
 echo '<br/>***************<br/>' . $layoutsDirectory ;
+
+
 
 ob_start();
 
