@@ -41,8 +41,11 @@ $classDirectory = $rootDir . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR .
 // Chargement des Class 
 
 
+require_once $classDirectory . 'db.php';
 require_once $classDirectory . 'users.php';
 require_once $classDirectory . 'posts.php';
+
+
 
 
 

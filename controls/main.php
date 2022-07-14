@@ -28,33 +28,34 @@ $user = new Users;
 $posts = new Posts;
 
 
+
+
+
+
 // On appelle les models
 
-require_once $modelsDirectory . '/connexion.php';
 
-require_once $modelsDirectory . '/users.php'; 
+require_once $modelsDirectory . 'main.php';
 
-require_once $modelsDirectory . '/posts.php'; 
 
-dbConnexion();
-
-getUser('*');
-
-getPosts('*');
 
 
 
 //On traite les données
 
 echo '<br/> -------------------<br/><pre>';
-print_r($user); 
+print_r($Db->user); 
 
 echo '<br/> -------------------<br/>';
-print_r($posts); 
+print_r($Db->posts); 
 
 echo '</pre><br/>  ---------------- <br/>';
 
-echo $templatesDirectory . 'main.php';
+
+
+
+// Appelle des views
+
 
 require_once($templatesDirectory . 'main.php');
 

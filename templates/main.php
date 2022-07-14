@@ -8,8 +8,6 @@
 
 // Appeler le layout html
 
-echo '<br/>***************<br/>' . $layoutsDirectory ;
-
 
 
 ob_start();
