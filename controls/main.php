@@ -24,13 +24,22 @@ Traite les données à afficher, à savoir :
 
 declare(strict_types=1);
 
-$user = new Users;
+/*
+
+$users = new Users;
 $posts = new Posts;
 
 
+echo '<br/> -------------------<br/><pre>';
+print_r($users); 
+
+echo '<br/> -------------------<br/>';
+print_r($posts); 
+
+echo '</pre><br/>  ---------------- <br/>';
 
 
-
+*/
 
 // On appelle les models
 
@@ -43,13 +52,18 @@ require_once $modelsDirectory . 'main.php';
 
 //On traite les données
 
+
+
 echo '<br/> -------------------<br/><pre>';
-print_r($Db->user); 
+print_r($Db->users); 
 
 echo '<br/> -------------------<br/>';
 print_r($Db->posts); 
 
 echo '</pre><br/>  ---------------- <br/>';
+
+
+
 
 
 

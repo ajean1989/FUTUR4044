@@ -6,5 +6,8 @@
 
 ?>
 
-<img src="images/header.png" alt="header">
+<a href="/"><img src="<?= '/images/header.png'?>" alt="header"/></a>
 
+
+<a href="/connexion" target="blank">Connexion</a><br/>
+<a href="<?=  $rootDir . DIRECTORY_SEPARATOR . 'inscription'?>" target="blank">Inscription</a>

@@ -18,6 +18,6 @@ declare(strict_types=1);
 
 $Db = new Db;
 
-$Db->getUser('*');
+$Db->getUsers('*');
 
 $Db->getPosts('*');

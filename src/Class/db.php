@@ -8,8 +8,8 @@ Class Db
 {
     public static object $pdo;
 
-    public mixed $posts;
-    public mixed $user;
+    public mixed $posts; 
+    public mixed $users;
 
 
     public static function connexion()
@@ -38,18 +38,18 @@ Class Db
         $query = 'SELECT ' . $select . ' FROM posts';
         $statement = self::$pdo->prepare($query);
         $statement->execute();
-        $this->posts = $statement->fetchall(PDO::FETCH_CLASS);
+        $this->posts = $statement->fetchall(PDO::FETCH_CLASS, 'Posts');   // posts, nouvelle instance de Posts, prop de Db
 
     }
 
-    public function getUser(string $select)
+    public function getUsers(string $select)
     {
         self::connexion();
 
         $query = 'SELECT ' . $select . ' FROM users';
         $statement = self::$pdo->prepare($query);
         $statement->execute();
-        $this->user = $statement->fetchall(PDO::FETCH_CLASS);
+        $this->users = $statement->fetchall(PDO::FETCH_CLASS, 'Users');
         
     }
 

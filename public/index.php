@@ -27,7 +27,12 @@
 
 // Variables de gestion des dossiers
 
+
 declare(strict_types=1);
+
+
+session_start();
+
 
 $rootDir = dirname(__DIR__);
 
@@ -36,6 +41,8 @@ $modelsDirectory = $rootDir . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARAT
 $templatesDirectory = $rootDir . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR ;
 $layoutsDirectory = $rootDir . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'layouts' . DIRECTORY_SEPARATOR ;
 $classDirectory = $rootDir . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Class' . DIRECTORY_SEPARATOR ;
+$imagesDirectory = $rootDir . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR ;
+
 
 
 // Chargement des Class 
@@ -47,29 +54,25 @@ require_once $classDirectory . 'posts.php';
 
 
 
-
-
-
-
 //Contrôle de l'url et chargement des controlers
 
-$uri = (isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : null); // $var = (condition) ? true : false
 
+$uri = $_SERVER['REQUEST_URI']; // $var = (condition) ? true : false
 
 
 switch($uri)
 {
-    case null :
+    case '/' :
         require_once $controlsDirectory.'main.php';
         break;
     case '/connexion' :
+        require_once $controlsDirectory.'connexion.php';
+        break;
+    case 'inscription' :
         // control;
         break;
-    case '/inscription' :
-        // control;
-        break;
-    case '/profil' :
-        // control;
+    case 'profil' :
+        require_once $controlsDirectory.'profil.php';
         break;
     /*case $category :
         // control;
