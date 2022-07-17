@@ -44,6 +44,20 @@ $classDirectory = $rootDir . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR .
 $imagesDirectory = $rootDir . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR ;
 
 
+// Variable séléction de l'article
+
+if(isset($_GET['id']))
+{
+    $postId = (int) $_GET['id']; 
+}
+
+
+if(isset($_GET['theme']))
+{
+    $category = $_GET['theme'];
+}
+
+
 
 // Chargement des Class 
 
@@ -68,23 +82,29 @@ switch($uri)
     case '/connexion' :
         require_once $controlsDirectory.'connexion.php';
         break;
-    case 'inscription' :
-        // control;
+    case '/disconnect' :
+        require_once $controlsDirectory.'disconnect.php';
         break;
-    case 'profil' :
+    case '/inscription' :
+        require_once $controlsDirectory.'signin.php';
+        break;
+    case '/profil' :
         require_once $controlsDirectory.'profil.php';
         break;
-    /*case $category :
-        // control;
+    case '/Nouvel_article' :
+        require_once $controlsDirectory.'new_post.php';
         break;
-    case $post :
-            // control;
-        break;    */
+    case '/?theme=' . $category :
+        require_once $controlsDirectory.'category.php';
+        break;
+    case '/?id=' . $postId :
+            require_once $controlsDirectory . 'post.php';
+        break;    
 
     default : 
     echo 'Erreur 404 : page non trouvée sur l\'internet 🤓';
         
-
+    
 }
 
 //tests

@@ -24,22 +24,8 @@ Traite les données à afficher, à savoir :
 
 declare(strict_types=1);
 
-/*
-
-$users = new Users;
-$posts = new Posts;
 
 
-echo '<br/> -------------------<br/><pre>';
-print_r($users); 
-
-echo '<br/> -------------------<br/>';
-print_r($posts); 
-
-echo '</pre><br/>  ---------------- <br/>';
-
-
-*/
 
 // On appelle les models
 

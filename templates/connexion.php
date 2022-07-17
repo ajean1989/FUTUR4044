@@ -4,7 +4,6 @@ $title = 'Connexion :: FUTUR :: 4044';
 
 ob_start(); ?>
 
-<?= $controlsDirectory . 'connexion.php'?>
 
 <form method="post" action="<?php $controlsDirectory . 'connexion.php'?>">
     <p>

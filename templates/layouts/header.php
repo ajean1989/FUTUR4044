@@ -10,4 +10,7 @@
 
 
 <a href="/connexion" target="blank">Connexion</a><br/>
-<a href="<?=  $rootDir . DIRECTORY_SEPARATOR . 'inscription'?>" target="blank">Inscription</a>
+<a href="/profil" target="blank">Profil</a>
+<a href="/inscription" target="blank">Inscription</a>
+<a href="/disconnect" target="blank">Déconnexion</a>
+<a href="/Nouvel_article" target="blank">Nouvel article</a>

@@ -6,15 +6,23 @@
 
 // Contenu à afficher 
 
+    
+
 // Appeler le layout html
 
 $title = ':: FUTUR :: 4044 ::';
 
 ob_start();
 
+
 if(isset($_SESSION['name']))
 {
-    echo 'Hello ' . $_SESSION['name'] . '<br/>';
+    if($_SESSION['valid'] = 1)
+    {
+        echo 'Enregistrement réussi <br/>';
+        $_SESSION['valid'] = 0;
+    }
+    echo 'Hello ' . $_SESSION['name'] . '<br/>' . $_SESSION['mail'];
 }
 else
 {
@@ -23,7 +31,7 @@ else
 
 foreach($Db->posts as $post)
 {
-    echo $post->title . '<br/>' . $post->content . '<br/>';
+    echo '<a href="/?id=' . $post->id . '">' . $post->title . '<br/>' . $post->content . '</a><br/>';
 }
 
 

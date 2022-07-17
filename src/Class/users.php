@@ -2,6 +2,8 @@
 
 // Class récoltant la table users
 
+// A voir à quoi sert cette class
+
 declare(strict_types=1);
 
 Class Users
