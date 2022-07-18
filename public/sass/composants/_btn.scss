@@ -1,0 +1,22 @@
+
+.btn
+{
+    @include button;
+    background: linear-gradient(to right, $primary-color, $background-color);
+    padding-left : 2rem;
+
+    &--nav
+    {
+        @include button;
+        background: linear-gradient(to right, $background-color, $primary-color);
+        padding-left : 2rem;
+    }
+
+    &--form
+    {
+        @include button;
+        background: linear-gradient(to right, $background-color, $primary-color);
+    }
+
+}
+

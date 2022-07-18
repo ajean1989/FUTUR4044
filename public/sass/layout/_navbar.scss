@@ -1,0 +1,18 @@
+nav
+{
+    grid-area: nav;
+
+    background-color: $background-color;
+
+    color: $sec-background-color;
+}
+
+nav a 
+{
+    color: $sec-background-color;
+}
+
+nav ul 
+{
+    padding-top : 2rem;
+}

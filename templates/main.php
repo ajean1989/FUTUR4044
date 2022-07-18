@@ -12,27 +12,54 @@
 
 $title = ':: FUTUR :: 4044 ::';
 
+
+
 ob_start();
 
 
+
+
+// Banière d'info 
+
+
+echo '<div class="main__bann">';
+
 if(isset($_SESSION['name']))
 {
-    if($_SESSION['valid'] = 1)
+    if(isset($_SESSION['valid']) && $_SESSION['valid'] === 1)
     {
-        echo 'Enregistrement réussi <br/>';
+        echo 'Enregistrement réussi :: Hello ' . $_SESSION['name'] . ' ::';
         $_SESSION['valid'] = 0;
     }
-    echo 'Hello ' . $_SESSION['name'] . '<br/>' . $_SESSION['mail'];
+    else
+    {
+        echo ':: Hello ' . $_SESSION['name'] . ' ::';
+    }
 }
 else
 {
-    echo 'Hello inconnu <br/>';
+    echo 'Hello jeune inconnu :)<br/>';
 }
+
+echo '</div>';
+
+
+
+
+
+
+
+//Articles
+
+
+echo '<ul>';
 
 foreach($Db->posts as $post)
 {
-    echo '<a href="/?id=' . $post->id . '">' . $post->title . '<br/>' . $post->content . '</a><br/>';
+    echo '<div class="main__posts"><li><h2><a href="/?id=' . $post->id . '">' . $post->title . '</h2></a><br/>' . $post->content . '</li></div>';
 }
+
+echo '</ul>';
 
 
 $content = ob_get_clean();

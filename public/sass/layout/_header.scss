@@ -1,0 +1,25 @@
+header
+{
+    grid-area: header;
+
+    display : flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+    align-items: center;
+
+    background-color: $primary-color;
+
+    
+}
+
+header ul
+{
+    width : 320px;
+
+
+}
+
+header a
+{
+    color: $sec-background-color;
+}

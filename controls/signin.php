@@ -14,8 +14,14 @@ if(isset($_POST['mail']))
 {
 
     require_once $modelsDirectory . 'signin.php';
+
     $_SESSION['name'] = $_POST['name'];
-    $_SESSION['valid'] = 1;     //Modifier le fichier templates/main.php
+    $_SESSION['last_name'] = $_POST['last_name'];
+    $_SESSION['mail'] = $_POST['mail'];
+    $_SESSION['birth'] = $_POST['birth'];
+    $_SESSION['admin'] = 0;
+    $_SESSION['valid'] = 1;     
+
     require_once $controlsDirectory . 'main.php';
 
 }

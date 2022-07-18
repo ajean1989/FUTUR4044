@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "sass": "^1.53.0"
+  },
+  "name": "futur4044",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "sass": "sass --watch ./public/sass/main.scss:./public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajean1989/FUTUR4044.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajean1989/FUTUR4044/issues"
+  },
+  "homepage": "https://github.com/ajean1989/FUTUR4044#readme",
+  "description": ""
+}

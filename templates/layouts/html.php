@@ -3,21 +3,34 @@
 
 	<head>
 		<meta charset="utf-8">
+		<link rel="stylesheet" href="./css/style.css" />
 		<title><?= $title ?></title>
 	</head>
 
-	<?php // header
-	require_once $layoutsDirectory . 'header.php'; 
-	require_once $layoutsDirectory . 'navbar.php'; 
-	?>
 
 	<body>
 
-        <?php
-        echo $content;
-        ?>
+		
+		<header>
+			<?php require_once $layoutsDirectory . 'header.php'; ?>
+		</header>
+
+		<nav>
+			<?php require_once $layoutsDirectory . 'navbar.php'; ?>
+		</nav>
+
+		<section>
+
+			<div class="main">
+
+        		<?php
+        		echo $content;
+        		?>
+
+			</div>
+
+		</section>
 
 
-        
 	</body>
 </html>

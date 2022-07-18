@@ -1,0 +1,53 @@
+.main
+{
+    margin : auto;
+    padding: 2rem;
+    width: 80%;
+    color : $sec-background-color;
+    
+    
+
+    &__bann
+    {
+        background: linear-gradient(to right, $second-color, $background-color);
+        color : $sec-background-color;
+        border-radius : 5px;
+        padding-left : 2rem;
+        padding-top : 2px;
+        padding-bottom : 2px;
+
+        animation-delay: 3s;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+        animation-name: errase_bann;
+
+    }
+
+
+    &__posts
+    {
+        //background: linear-gradient($sec-background-color, $sec-background-color 50%, $background-color);
+        background-color: $sec-background-color;
+        color: $background-color;
+        border-radius : 20px;
+        margin-top : 2rem;
+        padding: 2rem;
+
+
+    }
+}
+
+/*
+.main a 
+{
+    color : $sec-background-color;
+}
+
+
+.main li
+{
+    padding : 1rem;
+}
+
+*/
+

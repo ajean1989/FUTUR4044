@@ -40,14 +40,6 @@ require_once $modelsDirectory . 'main.php';
 
 
 
-echo '<br/> -------------------<br/><pre>';
-print_r($Db->users); 
-
-echo '<br/> -------------------<br/>';
-print_r($Db->posts); 
-
-echo '</pre><br/>  ---------------- <br/>';
-
 
 
 

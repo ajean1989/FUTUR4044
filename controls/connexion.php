@@ -25,15 +25,12 @@ declare(strict_types=1);
 
 
 
-
-echo $_POST['mail'];
-
-
 if (isset($_POST['mail']))
 {
     //Contrôle
     
     require_once $modelsDirectory . 'connexion.php';
+
 
 
     foreach($Db->users as $user)
@@ -44,26 +41,35 @@ if (isset($_POST['mail']))
             $_SESSION['name'] = $user->name;
             $_SESSION['last_name'] = $user->last_name;
             $_SESSION['birth'] = $user->birth;
-            header("location: /");
+            $_SESSION['admin'] = $user->admin;
         }
-        else
-        {
-            echo 'erreur dans la combinaison';
-        }
+
     } 
+
+    if(isset($_SESSION['mail']))
+    {
+        header('location: /');
+        exit();
+    }
+    else
+    {
+        $_SESSION['erreur'] = ':: Erreur :: 4044 :: identifiants non valides ::';
+        header('location: /connexion');
+        exit();
+    }
 
     // Fin contrôle
 
 }
 else
 {
-    echo $_SESSION['mail'];
     if(isset($_SESSION['mail']))
     {
-        echo 'Déjà connecté. Vers profil';
+        echo 'Déjà connectééééé';
     }
     else
     {
         require_once $templatesDirectory . 'connexion.php';
     }
 }
+

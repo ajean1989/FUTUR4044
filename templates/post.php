@@ -6,7 +6,10 @@ $title = $post->title . ':: FUTUR :: 4044';
 
 ob_start(); 
 
-echo $post->title . '<br/>'  . $post->content;
+echo 
+'<h1>' . $post->title . '</h1>' . 
+    
+'<p>' . $post->content . '</p>';
 
 $content=ob_get_clean();
 

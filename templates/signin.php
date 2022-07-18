@@ -12,7 +12,7 @@ ob_start(); ?>
         <label for="name">prénom</label> : <input type="text" name="name" id="name" required autofocus/>
     </p>
     <p>
-        <label for="lastname">Nom</label> : <input type="text" name="lastname" id="lastname" required/>
+        <label for="last_name">Nom</label> : <input type="text" name="last_name" id="last_name" required/>
     </p>
     <p>
         <label for="mail">Mail</label> : <input type="email" name="mail" id="mail" required/>
@@ -24,7 +24,7 @@ ob_start(); ?>
         <label for="password">Mot de passe</label> : <input type="password" name="password" id="password" required/>
     </p>
     <p>
-        <input type="submit"/>
+        <input class="btn--form" type="submit"/>
     </p>
 </form>
 

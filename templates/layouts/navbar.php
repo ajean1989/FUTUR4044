@@ -6,11 +6,11 @@
 
 require_once $modelsDirectory . 'navbar.php';
 
-echo '<pre>';
-var_dump($Db->category);
-echo '</pre>';
+echo '<ul>';
 
 foreach($Db->category as $category)
 {
-    echo '<a href="/?theme=' . $category['name'] . '">' . $category['name'] . '</a><br/>'; //problème type de texte dans l'url pour géoplitique & transport
+    echo '<li class="btn"><a href="/?theme=' . $category['name'] . '">' . $category['name'] . '</a></li>'; //problème type de texte dans l'url pour géoplitique & transport
 }
+
+echo '</ul>';

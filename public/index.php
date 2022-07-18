@@ -56,6 +56,12 @@ if(isset($_GET['theme']))
 {
     $category = $_GET['theme'];
 }
+else
+{
+    $category = '';
+}
+
+
 
 
 

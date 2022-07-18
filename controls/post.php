@@ -19,7 +19,6 @@ foreach($Db->posts as $post)
     
     if ($postId === $post->id)
     {
-        echo 'ok';
         require_once $templatesDirectory . 'post.php';
     }
   

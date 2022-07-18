@@ -10,12 +10,11 @@ $title = 'Nouvel article :: FUTUR :: 4044';
 
 ob_start(); ?>
 
-<h1>Nouvel article</h1>
 
 
 <form method="post" action="<?php $controlsDirectory . 'new_post.php' ?>">
     <p>
-        <label for="title">Titre </label> : <input type="text" name="title" id="title" required autofocus/>
+        <label for="title">Titre </label>  <input type="text" name="title" id="title" required autofocus/>
     </p>
     <p>
         <label for="category">Catégorie</label>
@@ -29,13 +28,13 @@ ob_start(); ?>
         </select>
     </p>
     <p>
-        <label for="content">Article</label> : <textarea name="content" id="content" required> Article ... </textarea>
+        <label for="content">Article</label>  <textarea name="content" id="content" required> Article ... </textarea>
     </p>
     <p>
-        <label for="projection">Horizon</label> : <input type="number" name="projection" id="projection" required/>
+        <label for="projection">Horizon</label>  <input type="number" name="projection" id="projection" required/>
     </p>
     <p>
-        <input type="submit"/>
+        <input class="btn--form" type="submit"/>
     </p>
 </form>
 
