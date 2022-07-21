@@ -21,7 +21,7 @@ elseif(isset($_SESSION['mail']) && $_SESSION['admin']===1)
     echo '<ul>
             <li class=btn--nav><a href="/profil">' . $_SESSION['name'] . '</a></li>
             <li class=btn--nav><a href="/disconnect">Déconnexion</a></li>
-            <li class=btn--nav><a href="/Nouvel_article">Nouvel article</a></li>
+            <li class=btn--nav><a href="/nouvel_article">Nouvel article</a></li>
         </ul>';
 }
 else

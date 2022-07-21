@@ -12,11 +12,19 @@ if(isset($_POST['title']))
 {
     require_once $modelsDirectory . 'new_post.php';
 
-    $postId = $Db->posts->id;
+    $postId = $Posts->posts->id;
 
     header("location: /?id=" . $postId);
 }
+elseif(isset($_SESSION['error']))
+{
+    
+    echo 'hey';
+    require_once $templatesDirectory . 'new_post.php';
+    
+}
 else
 {
+    echo 'coucou';
     require_once $templatesDirectory . 'new_post.php';
 }

@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 require_once $modelsDirectory . 'post.php';
 
-foreach($Db->posts as $post)
+foreach($Posts->posts as $post)
 {
     //echo $postId . '<br/>' . $post->id;
 

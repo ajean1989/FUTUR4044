@@ -4,7 +4,20 @@
 
 $title = 'Inscription :: FUTUR :: 4044';
 
-ob_start(); ?>
+ob_start(); 
+
+
+if(isset($_SESSION['error']))
+{
+    echo '<div class="main__bann">';
+    echo $_SESSION['error'];
+    echo '</div>';
+    unset($_SESSION['error']);
+}
+
+
+
+?>
 
 
 <form method="post" action="<?php $controlsDirectory . 'signin.php' ?>">

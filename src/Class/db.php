@@ -8,9 +8,20 @@ Class Db
 {
     public static object $pdo;
 
-    public mixed $posts; 
-    public mixed $users;
-    public mixed $category;
+        // Variables Users
+
+    public string $inputName;
+    public string $inputLastName;  
+    public string $inputMail;
+    public string $inputBirth;
+    public string $inputPassword; 
+
+        // Variables Posts
+
+    public string $inputTitle; 
+    public string $inputContent; 
+    public string $inputHorizon; 
+    public string $inputCategory;
 
 
     public static function connexion()
@@ -31,97 +42,170 @@ Class Db
 
     }
 
-    public function getPost(string $select, $where = null)
+    public function safeInputs($pageName)
     {
-        
-        self::connexion();
-
-        $query = 'SELECT ' . $select . ' FROM posts ' . $where;
-        $statement = self::$pdo->prepare($query);
-        $statement->setFetchMode(PDO::FETCH_CLASS, 'Posts');
-        $statement->execute();
-        $this->posts = $statement->fetch(PDO::FETCH_CLASS);   // posts, nouvelle instance de Posts, prop de Db
 
 
-    }
+        // (récupère les entrées)
 
-    public function getPosts(string $select, $where = null)
-    {
-        
-        self::connexion();
+            // User
 
-        $query = 'SELECT ' . $select . ' FROM posts ' . $where;
-        $statement = self::$pdo->prepare($query);
-        $statement->execute();
-        $this->posts = $statement->fetchall(PDO::FETCH_CLASS, 'Posts');   // posts, nouvelle instance de Posts, prop de Db
+        $this->inputName = isset($_POST['name']) ? $_POST['name'] : '' ;
+        $this->inputLastName = isset($_POST['last_name']) ? $_POST['last_name'] : '' ; 
+        $this->inputMail = isset($_POST['mail']) ? $_POST['mail'] : '' ;
+        $this->inputBirth = isset($_POST['birth']) ? $_POST['birth']  : '' ;
+        $this->inputPassword = isset($_POST['password']) ? $_POST['password']: '' ;
 
-    }
+            // Posts
 
-    public function getUsers(string $select)
-    {
-        self::connexion();
-
-        $query = 'SELECT ' . $select . ' FROM users';
-        $statement = self::$pdo->prepare($query);
-        $statement->execute();
-        $this->users = $statement->fetchall(PDO::FETCH_CLASS, 'Users');
-        
-    }
-
-    public function addUser()
-    {
-        self::connexion();
-
-        $cryptedPassword = SHA1($_POST['password']);
-
-        $query = 'INSERT INTO users(name, last_name, birth, mail, password) VALUES (:name, :lastname, :birth, :mail, :password)';
-        $statement = self::$pdo->prepare($query);
-        $statement->execute([
-            'name'=>$_POST['name'],
-            'lastname'=>$_POST['lastname'],
-            'birth'=>$_POST['birth'],
-            'mail'=>$_POST['mail'],
-            'password'=>$cryptedPassword,
-        ]);            ;
-    }
-
-    public function addPost()
-    {
-        self::connexion();
-
-        $query = 'INSERT INTO posts(category_id, title, content, projection) VALUES (:category_id, :title, :content, :projection)';
-        $statement = self::$pdo->prepare($query);
-        $statement->execute([
-            'category_id'=>$_POST['category'],
-            'title'=>$_POST['title'],
-            'content'=>$_POST['content'],
-            'projection'=>$_POST['projection'],
-        ]);  
-    }
-
-    public function getCategory($select, $where = null)
-    {
-        self::connexion();
-
-        $query = 'SELECT ' . $select . ' FROM category ' . $where;
-        $statement = self::$pdo->prepare($query);
-        $statement->execute();
-        $this->category = $statement->fetchall(PDO::FETCH_ASSOC);
-
-    }
+        $this->inputTitle = isset($_POST['title']) ? $_POST['title'] : '' ;
+        $this->inputContent = isset($_POST['content']) ? $_POST['content'] : '' ;
+        $this->inputHorizon = isset($_POST['projection']) ? $_POST['projection'] : '' ;
+        $this->inputCategory = isset($_POST['category']) ? $_POST['category'] : '' ;
     
-    public function getPostsByCategory($category)
-    {
-        //Table category -> name & table posts -> category_id
-    
-        self::connexion();
-
-        $query = 'SELECT * FROM category INNER JOIN posts ON category.id = posts.category_id WHERE category.name = \'' . $category .'\'';
-        $statement = self::$pdo->prepare($query);
-        $statement->execute();
-        $this->posts = $statement->fetchall(PDO::FETCH_CLASS, 'Posts');
-    }
 
     
 
+        // set la longueur 
+
+        $lenName = strlen($this->inputName);
+        $lenLastName = strlen($this->inputLastName);
+        //$lenMail = strlen($inputMail);
+        $lenBirth = strlen($this->inputBirth);
+        $lenPassword = strlen($this->inputPassword);
+
+        $lenTitle = strlen($this->inputTitle);
+        //$lenContent = strlen($this->inputContent);
+        $lenHorizon = strlen($this->inputHorizon);
+        //$lenCategory = strlen($this->inputCategory);
+
+
+
+    
+
+
+
+        // Définit les regex
+
+            // User
+
+        $regexName = '#[^=”<>:/\*$]{' . $lenName . '}#';
+        $regexLastName = '#[^=”<>:/\*$]{' . $lenLastName . '}#';
+        $regexMail = '#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#';
+        $regexBirth = '#[0-9/-]{' . $lenBirth . '}#';
+        $regexPassword = '#[^=”<>:/\*$]{' . $lenPassword . '}#';
+    
+                // Post
+    
+        $regexTitle = '#[^<>*]{' . $lenTitle . '}#i';
+        //$regexContent;
+        $regexHorizon = '#[0-9]{' . $lenHorizon . '}#';
+
+
+
+        // Traite avec une regex
+
+        if($pageName === '/inscription')
+        {
+            if(!preg_match($regexName, $this->inputName) || !preg_match($regexLastName, $this->inputLastName))
+            {    
+                $_SESSION['error'] = ':: Les caratères interdits pour le nom et prénom sont = ” < > / \ * $ ::';
+                header('location: /inscription');
+                exit();
+            }
+            elseif(!preg_match($regexBirth, $this->inputBirth))
+            {
+                $_SESSION['error'] = ':: La date de naissance n\'est pas au bon format :: ';
+                header('location: /inscription');
+                exit();
+            }
+            elseif(!preg_match($regexMail, $this->inputMail))
+            {
+                $_SESSION['error'] = ':: Adresse mail non valide ::';
+                header('location: /inscription');
+                exit();
+            }
+            elseif(!preg_match($regexPassword, $this->inputPassword))
+            {
+                $_SESSION['error'] = ':: Les caratères interdits pour le mot de passe sont = ” < > / \ * $ ::';
+                header('location: /inscription');
+                exit();
+            }
+            elseif($lenPassword < 6)
+            {    
+                $_SESSION['error'] = ':: Le mot de passe doit faire au moins 6 caractères ::';
+                header('location: /inscription');
+                exit();
+            }
+            else
+            {
+                //$_SESSION['error'] = 'none';
+
+            }
+        }
+
+/* 
+        elseif($pageName === '/connexion')
+        {
+            if(!preg_match($regexMail, $this->inputMail) && !preg_match($regexPassword, $this->inputPassword))
+            {
+                $_SESSION['error'] = ':: ... Erreur ...  ::';
+                header('location: /connexion');
+                exit();
+            }
+            else
+            {
+                //$_SESSION['error'] = 'none';
+            }
+        }
+
+*/
+
+
+        elseif($pageName === '/nouvel_article')
+        {
+            if(!preg_match($regexTitle, $this->inputTitle))
+            {    
+                $_SESSION['error'] = ':: Le titre comporte un des caractères suivants : &lt &gt * ::';
+                header('location: /nouvel_article');
+                exit();
+            }
+            elseif(!preg_match($regexHorizon, $this->inputHorizon))
+            {
+                $_SESSION['error'] = ':: ... L\'horizon n\'est pas une année ... :: ';
+                header('location: /nouvel_article');
+                exit();
+            }
+            else
+            {
+                //$_SESSION['error'] = 'none';
+            }
+        }
+
+      
+
+        // Ajout de htmlspecialchar
+
+            // Users
+
+        $this->inputName = htmlspecialchars($this->inputName);
+        $this->inputLastName = htmlspecialchars($this->inputLastName);
+        $this->inputMail = htmlspecialchars($this->inputMail);
+        $this->inputBirth = htmlspecialchars($this->inputBirth);
+        $this->inputPassword = SHA1($this->inputPassword);
+
+            // Posts
+
+        $this->inputTitle = htmlspecialchars($this->inputTitle);
+        $this->inputContent =  htmlspecialchars($this->inputContent);
+        $this->inputHorizon =  htmlspecialchars($this->inputHorizon);
+        $this->inputCategory = htmlspecialchars($this->inputCategory);
+
+
+        // A présent on peut entrer ces données en db o:)
+
+    }
 }
+
+
+    

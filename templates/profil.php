@@ -4,6 +4,9 @@ $name = strtoupper($_SESSION['name']);
 
 $title = $name . ' :: FUTUR :: 4044';
 
+$birth = new DateTime($_SESSION['birth']);
+$birth->format('d/M/y');
+
 
 
 ob_start(); 
@@ -13,7 +16,7 @@ echo
     <ul>
         <li> Prénom : ' .$_SESSION['name'] . '</li>
         <li> Nom : ' . $_SESSION['last_name'] . '</li>
-        <li> Date de naissance : ' . $_SESSION['birth'] . '</li>
+        <li> Date de naissance : ' . $birth->datetime . '</li>
         <li> Adresse mail : ' . $_SESSION['mail'] . '</li>
     </ul>
 </p>';

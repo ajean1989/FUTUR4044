@@ -9,24 +9,32 @@
     Retour au main avec banière JS 'enregistrement réussi"
         commandée par $_SESSION['valid']
 */
+declare(strict_types=1);
+
 
 if(isset($_POST['mail']))
 {
 
     require_once $modelsDirectory . 'signin.php';
 
-    $_SESSION['name'] = $_POST['name'];
-    $_SESSION['last_name'] = $_POST['last_name'];
-    $_SESSION['mail'] = $_POST['mail'];
-    $_SESSION['birth'] = $_POST['birth'];
+    $_SESSION['name'] = $Users->inputName;
+    $_SESSION['last_name'] = $Users->inputLastName;
+    $_SESSION['mail'] = $Users->inputMail;
+    $_SESSION['birth'] = $Users->inputBirth;
     $_SESSION['admin'] = 0;
     $_SESSION['valid'] = 1;     
 
     require_once $controlsDirectory . 'main.php';
+    
 
+}
+elseif(isset($_SESSION['error']))       //Affiche les erreurs
+{
+    require_once $templatesDirectory . 'signin.php';
 }
 else
 {
+
     if(isset($_SESSION['name']))
     {
         require_once $controlsDirectory . 'profil.php';

@@ -4,10 +4,10 @@ $title = 'Connexion :: FUTUR :: 4044';
 
 ob_start(); 
 
-if(isset($_SESSION['erreur']))
+if(isset($_SESSION['error']))
 {
-    echo '<div class="main__bann">' . $_SESSION['erreur'] . '</div>';
-    unset($_SESSION['erreur']);
+    echo '<div class="main__bann">' . $_SESSION['error'] . '</div>';
+    unset($_SESSION['error']);
 }
 
 ?>

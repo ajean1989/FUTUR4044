@@ -23,17 +23,28 @@
 declare(strict_types=1);
 
 
+if(isset($_SESSION['try']) && $_SESSION['try']>3)
+{
+    $_SESSION['error'] = ':: Trop d\'echecs Kasparov, reviens dans ... 180 minutes ::';
+    require_once $controlsDirectory . 'main.php';
+}
 
 
 if (isset($_POST['mail']))
 {
     //Contrôle
+
+    if(!isset($_SESSION['try']))
+    {
+        $_SESSION['try'] = (int) 1;
+    }
     
     require_once $modelsDirectory . 'connexion.php';
 
 
-
-    foreach($Db->users as $user)
+    // Pas de contrôle des entrées car $_POST sera uniquement comparé et jamais affiché ou en requête
+ 
+    foreach($Users->users as $user)
     {
         if($user->mail === $_POST['mail'] && $user->password === SHA1($_POST['password']))
         {
@@ -48,12 +59,14 @@ if (isset($_POST['mail']))
 
     if(isset($_SESSION['mail']))
     {
+        unset($_SESSION['try']);
         header('location: /');
         exit();
     }
     else
     {
-        $_SESSION['erreur'] = ':: Erreur :: 4044 :: identifiants non valides ::';
+        $_SESSION['error'] = ':: Erreur :: 4044 :: identifiants non valides :: ' . $_SESSION['try'] . '/10 tentatives';
+        $_SESSION['try']++;
         header('location: /connexion');
         exit();
     }

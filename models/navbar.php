@@ -4,5 +4,7 @@ declare(strict_types=1);
 
 $Db = new Db; 
 
-$Db->getCategory('*');
+$Posts = new Posts;
+
+$Posts->getCategory('*');
 

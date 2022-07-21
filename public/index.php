@@ -97,7 +97,7 @@ switch($uri)
     case '/profil' :
         require_once $controlsDirectory.'profil.php';
         break;
-    case '/Nouvel_article' :
+    case '/nouvel_article' :
         require_once $controlsDirectory.'new_post.php';
         break;
     case '/?theme=' . $category :

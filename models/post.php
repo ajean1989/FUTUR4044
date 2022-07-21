@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 $Db = new DB;
 
-$Db->getPosts('*');
+$Posts = new Posts;
+
+$Posts->getPosts('*');
 
 
 

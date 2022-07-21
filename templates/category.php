@@ -11,7 +11,9 @@ echo '<div class="main__bann">' . $category . '</div>';
 
 echo '<ul>';
 
-foreach($Db->posts as $post)
+
+
+foreach($Posts->posts as $post)
 {
     echo '<div class="main__posts"><li><h2><a href="/?id=' . $post->id . '">' . $post->title . '</h2></a><br/>' . $post->content . '</li></div>';
 }

@@ -10,7 +10,14 @@
 
 declare(strict_types=1);
 
-$Db = new DB;
 
-$Db->addUser();
+
+$Db = new Db;
+
+$Users = new Users;
+
+$Users->addUser();
+
+
+
 

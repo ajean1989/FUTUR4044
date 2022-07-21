@@ -30,19 +30,32 @@ if(isset($_SESSION['name']))
     {
         echo 'Enregistrement réussi :: Hello ' . $_SESSION['name'] . ' ::';
         $_SESSION['valid'] = 0;
+        if(isset($_SESSION['error']))
+        {
+            echo '<br/>:: Votre date de naissance m\'indique que ' . $_SESSION['error'];
+            unset($_SESSION['error']);
+        }
     }
     else
     {
-        echo ':: Hello ' . $_SESSION['name'] . ' ::';
+        echo ':: Bonjour ' . $_SESSION['name'] . ' ::';
     }
 }
 else
 {
-    echo 'Hello jeune inconnu :)<br/>';
+    if(isset($_SESSION['error']))
+        {
+            echo $_SESSION['error'];
+            unset($_SESSION['error']);
+        }
+        else
+        {
+            echo ':: Bonjour à vous, humain ::';
+        }
+    
 }
 
 echo '</div>';
-
 
 
 
@@ -54,7 +67,7 @@ echo '</div>';
 
 echo '<ul>';
 
-foreach($Db->posts as $post)
+foreach($Posts->posts as $post)
 {
     echo '<div class="main__posts"><li><h2><a href="/?id=' . $post->id . '">' . $post->title . '</h2></a><br/>' . $post->content . '</li></div>';
 }

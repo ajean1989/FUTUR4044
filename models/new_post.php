@@ -2,7 +2,9 @@
 
 $Db = new Db;
 
-$Db->addPost();
+$Posts = new Posts;
 
-$Db->getPost('*','WHERE title = ' . '"five"' . ' ;');
+$Posts->addPost();
+
+$Posts->getPost('*','WHERE title = "' . $Posts->inputTitle .'"');
 

@@ -8,9 +8,15 @@ Affiche le formulaire
 
 $title = 'Nouvel article :: FUTUR :: 4044';
 
-ob_start(); ?>
+ob_start(); 
 
+if(isset($_SESSION['error']))
+{
+    echo '<div class="main__bann">' . $_SESSION['error'] . '</div>';
+    unset($_SESSION['error']);
+}
 
+?>
 
 <form method="post" action="<?php $controlsDirectory . 'new_post.php' ?>">
     <p>
@@ -37,6 +43,7 @@ ob_start(); ?>
         <input class="btn--form" type="submit"/>
     </p>
 </form>
+
 
 <?php
 $content=ob_get_clean();
