@@ -16,7 +16,7 @@ echo
     <ul>
         <li> Prénom : ' .$_SESSION['name'] . '</li>
         <li> Nom : ' . $_SESSION['last_name'] . '</li>
-        <li> Date de naissance : ' . $birth->datetime . '</li>
+        <li> Date de naissance : ' . $birth->format('d/M/y') . '</li>
         <li> Adresse mail : ' . $_SESSION['mail'] . '</li>
     </ul>
 </p>';

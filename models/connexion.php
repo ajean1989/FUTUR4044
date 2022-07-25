@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-$Db = new Db;
 
-$Users = new Users;
 
-$Users->getUsers('*');
+$usersQuery = 'SELECT * FROM users';
+
+$listUsers = Db::fetchall($usersQuery, 'Users');

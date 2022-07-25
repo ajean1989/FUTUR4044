@@ -10,21 +10,23 @@ Oui : model / envoie vers l'article     Non : On affiche le formulaire
 
 if(isset($_POST['title']))
 {
+
     require_once $modelsDirectory . 'new_post.php';
 
-    $postId = $Posts->posts->id;
+    //Test::var_dump($AddPost->LastPost->id);
 
-    header("location: /?id=" . $postId);
+    header("location: /?id=" . $AddPost->LastPost->id);
+
 }
 elseif(isset($_SESSION['error']))
 {
-    
-    echo 'hey';
+
     require_once $templatesDirectory . 'new_post.php';
-    
+
 }
 else
 {
-    echo 'coucou';
+
     require_once $templatesDirectory . 'new_post.php';
+
 }

@@ -4,6 +4,8 @@
     padding: 2rem;
     width: 80%;
     color : $sec-background-color;
+
+
     
     
 
@@ -26,6 +28,9 @@
 
     &__posts
     {
+      
+
+        
         //background: linear-gradient($sec-background-color, $sec-background-color 50%, $background-color);
         background-color: $sec-background-color;
         color: $background-color;
@@ -33,7 +38,28 @@
         margin-top : 2rem;
         padding: 2rem;
 
+        & li
+        {
+            display: flex;
 
+            &:nth-child(2)
+            {
+                margin-left : 20px;
+            }
+        }
+
+        
+
+
+    }
+
+    &__postImg
+    {
+        
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+        margin-right: 20px;
     }
 }
 

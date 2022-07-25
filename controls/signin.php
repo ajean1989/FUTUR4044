@@ -44,4 +44,3 @@ else
         require_once $templatesDirectory . 'signin.php';
     }
 }
-

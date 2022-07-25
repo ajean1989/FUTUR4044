@@ -2,13 +2,8 @@
 
 declare(strict_types=1);
 
-$Db = new DB;
-
-$Posts = new Posts;
-
-$Posts->getPosts('*');
 
 
+$postQuery = 'SELECT * FROM posts WHERE id = ' . $postId;
 
-
-
+$Post = Db::fetch($postQuery, 'Posts');

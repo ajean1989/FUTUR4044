@@ -67,10 +67,22 @@ else
 
 // Chargement des Class 
 
+require_once $classDirectory . 'test.php';
+
 
 require_once $classDirectory . 'db.php';
-require_once $classDirectory . 'users.php';
+require_once $classDirectory . 'safety.php';
+require_once $classDirectory . 'inputs.php';
+require_once $classDirectory . 'posts_inputs.php';
+require_once $classDirectory . 'posts_safety.php';
+require_once $classDirectory . 'posts_controls.php';
+require_once $classDirectory . 'addPost.php';
 require_once $classDirectory . 'posts.php';
+require_once $classDirectory . 'users_inputs.php';
+require_once $classDirectory . 'users_safety.php';
+require_once $classDirectory . 'users_controls.php';
+require_once $classDirectory . 'users.php';
+require_once $classDirectory . 'category.php';
 
 
 

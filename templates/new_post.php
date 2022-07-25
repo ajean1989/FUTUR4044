@@ -18,11 +18,10 @@ if(isset($_SESSION['error']))
 
 ?>
 
-<form method="post" action="<?php $controlsDirectory . 'new_post.php' ?>">
-    <p>
+<form method="post" action="<?php $controlsDirectory . 'new_post.php' ?>" enctype="multipart/form-data">
+
         <label for="title">Titre </label>  <input type="text" name="title" id="title" required autofocus/>
-    </p>
-    <p>
+
         <label for="category">Catégorie</label>
         <select name="category" id="category">
             <option value="1" selected>Technologie</option>
@@ -32,16 +31,16 @@ if(isset($_SESSION['error']))
             <option value="6">Géopolitique</option>
             <option value="9">Urbanisme & Transport</option>
         </select>
-    </p>
-    <p>
+
         <label for="content">Article</label>  <textarea name="content" id="content" required> Article ... </textarea>
-    </p>
-    <p>
+
         <label for="projection">Horizon</label>  <input type="number" name="projection" id="projection" required/>
-    </p>
-    <p>
-        <input class="btn--form" type="submit"/>
-    </p>
+
+        <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+        <label for="img">Image</label> <input type="file" name="img" id="img">
+
+        <input class="btn--form" type="submit" value="C'est partiii 😃" !/>
+
 </form>
 
 

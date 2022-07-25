@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-$Db = new Db; 
 
-$Posts = new Posts;
+$Category = new Category;
 
-$Posts->getCategory('*');
+$categoryQuery = 'SELECT name FROM category';
 
+$listCategory = Db::fetchall($categoryQuery, 'Category');

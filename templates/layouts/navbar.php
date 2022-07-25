@@ -8,9 +8,9 @@ require_once $modelsDirectory . 'navbar.php';
 
 echo '<ul>';
 
-foreach($Posts->category as $category)
+foreach($listCategory as $category)
 {
-    echo '<li class="btn"><a href="/?theme=' . $category['name'] . '">' . $category['name'] . '</a></li>'; //problème type de texte dans l'url pour géoplitique & transport
+    echo '<li class="btn"><a href="/?theme=' . $category->name . '">' . $category->name . '</a></li>'; //problème type de texte dans l'url pour géoplitique & transport
 }
 
 echo '<li class="btn"><a href="/disconnect">Déconnexion</a></li>';

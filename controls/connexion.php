@@ -23,6 +23,10 @@
 declare(strict_types=1);
 
 
+
+// Bloque l'acces si trop de tentative 
+
+
 if(isset($_SESSION['try']) && $_SESSION['try']>3)
 {
     $_SESSION['error'] = ':: Trop d\'echecs Kasparov, reviens dans ... 180 minutes ::';
@@ -30,21 +34,29 @@ if(isset($_SESSION['try']) && $_SESSION['try']>3)
 }
 
 
+
+
+
+
 if (isset($_POST['mail']))
 {
-    //Contrôle
+
+    // Initialisation des tentatives
 
     if(!isset($_SESSION['try']))
     {
         $_SESSION['try'] = (int) 1;
     }
+
     
     require_once $modelsDirectory . 'connexion.php';
 
 
+    // Est ce que les inputs matches ?
     // Pas de contrôle des entrées car $_POST sera uniquement comparé et jamais affiché ou en requête
+
  
-    foreach($Users->users as $user)
+    foreach($listUsers as $user)
     {
         if($user->mail === $_POST['mail'] && $user->password === SHA1($_POST['password']))
         {
@@ -71,14 +83,14 @@ if (isset($_POST['mail']))
         exit();
     }
 
-    // Fin contrôle
 
 }
 else
 {
     if(isset($_SESSION['mail']))
     {
-        echo 'Déjà connectééééé';
+        header('location: /profil');
+        exit();
     }
     else
     {

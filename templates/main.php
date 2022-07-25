@@ -67,9 +67,18 @@ echo '</div>';
 
 echo '<ul>';
 
-foreach($Posts->posts as $post)
+foreach($listMainPosts as $post)
 {
-    echo '<div class="main__posts"><li><h2><a href="/?id=' . $post->id . '">' . $post->title . '</h2></a><br/>' . $post->content . '</li></div>';
+    echo 
+    '<div class="main__posts">
+    <li>
+    <img class="main__postImg" src="/images/posts/' . $post->img . '" alt="images de couverture"/>
+    <div>
+    <h2><a href="/?id=' . $post->id . '">' . $post->title . '</h2></a><br/>
+    <p>' . $post->content . '</p>
+    </div></li>
+    </div>'
+    ;
 }
 
 echo '</ul>';

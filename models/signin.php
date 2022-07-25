@@ -1,23 +1,21 @@
 <?php
 
-/* 
-
-* Connexion à la db 
-
-* Ajout de l'utilisateur dans la db 
-
-*/
 
 declare(strict_types=1);
 
 
 
-$Db = new Db;
+// Pour la fonction userAlreadyInDb()
 
+$usersQuery = 'SELECT mail FROM users';
+$listUsers = Db::fetchall($usersQuery, 'Users');
+
+
+// Ajout en DB
+
+$UsersInputs = new UsersInputs;
+$UsersSafety = new UsersSafety;
+$UsersControls = new UsersControls;
 $Users = new Users;
 
 $Users->addUser();
-
-
-
-

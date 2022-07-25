@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-$Db = new DB;
 
-$Posts = new Posts;
 
-$Posts->getPostsByCategory($category);
+$categoryQuery = 'SELECT * FROM category INNER JOIN posts ON category.id = posts.category_id WHERE category.name = \'' . $category .'\'';
+
+$listCategoryPosts = Db::fetchall($categoryQuery, 'Posts');

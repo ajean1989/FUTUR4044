@@ -125,6 +125,7 @@ nav ul {
 section {
   grid-area: main;
   background-color: #1D2856;
+  overflow-y: scroll;
 }
 
 .main {
@@ -151,6 +152,18 @@ section {
   border-radius: 20px;
   margin-top: 2rem;
   padding: 2rem;
+}
+.main__posts li {
+  display: flex;
+}
+.main__posts li:nth-child(2) {
+  margin-left: 20px;
+}
+.main__postImg {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  margin-right: 20px;
 }
 
 /*
