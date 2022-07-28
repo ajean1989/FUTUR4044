@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-Class Users extends UsersControls
+Class Users extends CRUDUser
 {
 
     // vars en DB

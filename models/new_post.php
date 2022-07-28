@@ -11,12 +11,10 @@ $AddPost = new AddPost ;
 
 $AddPost->addPost();
 
+// Récupère le dernier post (pour le controler)
+
+$lastPostQuery = 'SELECT * FROM posts WHERE id = (SELECT max(id) FROM posts)';
+$LastPost = Db::fetch($lastPostQuery, 'Posts');
 
 
-// Pour récupérer l'id du post à intégrer au header location du controler
 
-
-
-//$postsQuery = 'SELECT id FROM posts WHERE title = \'' . $AddPost->inputTitle . '\'';
-
-//$Post = Db::fetch($postsQuery, 'posts');

@@ -16,6 +16,8 @@ $listUsers = Db::fetchall($usersQuery, 'Users');
 $UsersInputs = new UsersInputs;
 $UsersSafety = new UsersSafety;
 $UsersControls = new UsersControls;
+$AddUser = new CRUDUser;
 $Users = new Users;
+
 
 $Users->addUser();

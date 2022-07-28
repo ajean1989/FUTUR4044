@@ -25,5 +25,15 @@ Class UsersInputs implements Inputs
 
     }
 
+    public  function SetInputForNewPassword()
+    {
+
+
+        $this->inputPassword = isset($_POST['newPassword']) ? $_POST['newPassword']: false ;
+
+    }
+
+   
+
 
 }

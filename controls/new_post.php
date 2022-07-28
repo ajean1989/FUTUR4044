@@ -15,7 +15,7 @@ if(isset($_POST['title']))
 
     //Test::var_dump($AddPost->LastPost->id);
 
-    header("location: /?id=" . $AddPost->LastPost->id);
+    header("location: /?id=" . $LastPost->id);
 
 }
 elseif(isset($_SESSION['error']))

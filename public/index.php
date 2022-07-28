@@ -50,6 +50,10 @@ if(isset($_GET['id']))
 {
     $postId = (int) $_GET['id']; 
 }
+else
+{
+    $postId = (int) 0; 
+}
 
 
 if(isset($_GET['theme']))
@@ -81,8 +85,10 @@ require_once $classDirectory . 'posts.php';
 require_once $classDirectory . 'users_inputs.php';
 require_once $classDirectory . 'users_safety.php';
 require_once $classDirectory . 'users_controls.php';
+require_once $classDirectory . 'CRUDUser.php';
 require_once $classDirectory . 'users.php';
 require_once $classDirectory . 'category.php';
+require_once $classDirectory . 'images.php';
 
 
 
@@ -117,7 +123,16 @@ switch($uri)
         break;
     case '/?id=' . $postId :
             require_once $controlsDirectory . 'post.php';
-        break;    
+        break;  
+    case '/modifyPost/?id=' . $postId :
+         require_once $controlsDirectory . 'modifyPost.php';
+    break; 
+    case '/mprofil' :
+        require_once $controlsDirectory . 'modifyProfil.php';
+    break;   
+    case '/password' :
+        require_once $controlsDirectory . 'modifyPassword.php';
+    break;    
 
     default : 
     echo 'Erreur 404 : page non trouvée sur l\'internet 🤓';

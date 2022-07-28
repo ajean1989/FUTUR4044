@@ -12,7 +12,11 @@
 declare(strict_types=1);
 
 
-if(isset($_POST['mail']))
+if(isset($_SESSION['name']))
+{
+    require_once $controlsDirectory . 'profil.php';
+}
+elseif(isset($_POST['mail']))
 {
 
     require_once $modelsDirectory . 'signin.php';
@@ -34,13 +38,5 @@ elseif(isset($_SESSION['error']))       //Affiche les erreurs
 }
 else
 {
-
-    if(isset($_SESSION['name']))
-    {
-        require_once $controlsDirectory . 'profil.php';
-    }
-    else
-    {
         require_once $templatesDirectory . 'signin.php';
-    }
 }

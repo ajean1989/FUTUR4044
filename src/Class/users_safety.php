@@ -20,32 +20,38 @@ Class UsersSafety extends UsersInputs implements Safety
 
 
 
-    public function getLen()    
+    public function getLen($type='new')    
     {
-
-    $this->lenName = strlen($this->inputName);
-    $this->lenLastName = strlen($this->inputLastName);
-    //$lenMail = strlen($this->inputMail);
-    $this->lenBirth = strlen($this->inputBirth);
-    $this->lenPassword = strlen($this->inputPassword);
-
+        if($type !== 'password')
+        {
+            $this->lenName = strlen($this->inputName);
+            $this->lenLastName = strlen($this->inputLastName);
+            //$lenMail = strlen($this->inputMail);
+            $this->lenBirth = strlen($this->inputBirth);
+        }
+        if($type==='new' || $type === 'password')
+        {
+                $this->lenPassword = strlen($this->inputPassword);
+        }
     }
 
 
 
-    public function setRegex()
+    public function setRegex($type='new')
     {
-
-        $this->getLen();
-
-        $this->regexName = '#[^=”<>:/\*$]{' . $this->lenName . '}#';
-        $this->regexLastName = '#[^=”<>:/\*$]{' . $this->lenLastName . '}#';
-        $this->regexMail = '#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#';
-        $this->regexBirth = '#[0-9/-]{' . $this->lenBirth . '}#';
-        $this->regexPassword = '#[^=”<>:/\*$]{' . $this->lenPassword . '}#';
+        if($type !== 'password')
+        {
+            $this->regexName = '#[^=”<>:/\*$()]{' . $this->lenName . '}#';
+            $this->regexLastName = '#[^=”<>:/\*$()]{' . $this->lenLastName . '}#';
+            $this->regexMail = '#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#';
+            $this->regexBirth = '#[0-9/-]{' . $this->lenBirth . '}#';
+        }
+        if($type==='new'|| $type === 'password')
+        {
+            $this->regexPassword = '#[^=”<>:/\*$()]{' . $this->lenPassword . '}#';
+        }
      
     }
-
 
 
 
@@ -61,20 +67,24 @@ Class UsersSafety extends UsersInputs implements Safety
 
 
 
-    public function inputsControls()
+    public function inputsControls($type='new')
     {
 
-        $this->setRegex();
+        $this->getLen($type);
 
+        $this->setRegex($type);
+
+   
+
+    
         $pageName = $_SERVER['REQUEST_URI'];
 
 
-
-        if($pageName === '/inscription')
+        if($type !== 'password')
         {
             if(!preg_match($this->regexName, $this->inputName) || !preg_match($this->regexLastName, $this->inputLastName))
             {    
-                $message = ':: Les caratères interdits pour le nom et prénom sont = ” < > / \ * $ ::';
+                $message = ':: Les caratères interdits pour le nom et prénom sont = ” < > / \ * $ ( ) ::';
                 $this->errorExitAndMessage($message, $pageName);
             }
             elseif(!preg_match($this->regexBirth, $this->inputBirth))
@@ -87,9 +97,12 @@ Class UsersSafety extends UsersInputs implements Safety
                 $message = ':: Adresse mail non valide ::';
                 $this->errorExitAndMessage($message, $pageName);
             }
-            elseif(!preg_match($this->regexPassword, $this->inputPassword))
+        }
+        if($type === 'new' || $type === 'password')
+        {
+            if(!preg_match($this->regexPassword, $this->inputPassword))
             {
-                $message = ':: Les caratères interdits pour le mot de passe sont = ” < > / \ * $ ::';
+                $message = ':: Les caratères interdits pour le mot de passe sont = ” < > / \ * $ ( ) ::';
                 $this->errorExitAndMessage($message, $pageName);
             }
             elseif($this->lenPassword < 6)
@@ -98,18 +111,24 @@ Class UsersSafety extends UsersInputs implements Safety
                 $this->errorExitAndMessage($message, $pageName);
             }
         }
+    
 
     }
 
 
-    public function htmlspecialchars()
+    public function htmlspecialchars($type='new')
     {
-
-        $this->inputName = htmlspecialchars($this->inputName);
-        $this->inputLastName = htmlspecialchars($this->inputLastName);
-        $this->inputMail = htmlspecialchars($this->inputMail);
-        $this->inputBirth = htmlspecialchars($this->inputBirth);
-        $this->inputPassword = SHA1($this->inputPassword);
+        if($type !== 'password')
+        {
+            $this->inputName = htmlspecialchars($this->inputName);
+            $this->inputLastName = htmlspecialchars($this->inputLastName);
+            $this->inputMail = htmlspecialchars($this->inputMail);
+            $this->inputBirth = htmlspecialchars($this->inputBirth);
+        }
+        if($type === 'new' || $type === 'password')
+            {
+                $this->inputPassword = SHA1($this->inputPassword);
+            }
 
     }
 

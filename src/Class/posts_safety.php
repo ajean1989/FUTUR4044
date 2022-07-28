@@ -34,8 +34,8 @@ Class PostsSafety extends PostsInputs implements Safety
         $this->getLen();
      
         $this->regexTitle = '#[^<>*]{' . $this->lenTitle . '}#i';
-        //$regexContent;
-        $this->regexHorizon = '#[0-9]{' . $this->lenHorizon . '}#';
+        $this->regexContent = '#[^<>*]{' . $this->lenTitle . '}#i';
+        $this->regexHorizon = '#2[0-9]{3}#';
 
     }
 
@@ -67,6 +67,11 @@ Class PostsSafety extends PostsInputs implements Safety
             if(!preg_match($this->regexTitle, $this->inputTitle))
             {  
                 $message = ':: Le titre comporte un des caractères suivants : &lt &gt * ::';
+                $this->errorExitAndMessage($message, $pageName);
+            }
+            elseif(!preg_match($this->regexContent, $this->inputContent))
+            {  
+                $message = ':: Contenu avec des terme ou symboles interdits ::';
                 $this->errorExitAndMessage($message, $pageName);
             }
             elseif(!preg_match($this->regexHorizon, $this->inputHorizon))

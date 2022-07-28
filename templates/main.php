@@ -38,7 +38,15 @@ if(isset($_SESSION['name']))
     }
     else
     {
-        echo ':: Bonjour ' . $_SESSION['name'] . ' ::';
+        if(isset($_SESSION['error']))
+        {
+        echo ':: Bonjour ' . $_SESSION['name'] . ' :: <br/>' . $_SESSION['error'];
+        unset($_SESSION['error']);
+        }
+        else
+        {
+            echo ':: Bonjour ' . $_SESSION['name'];
+        }
     }
 }
 else
@@ -72,10 +80,10 @@ foreach($listMainPosts as $post)
     echo 
     '<div class="main__posts">
     <li>
-    <img class="main__postImg" src="/images/posts/' . $post->img . '" alt="images de couverture"/>
+    <img class="main__postImg" src="/images/posts/' . $post->id . '/' . $post->img . '" alt="images de couverture"/>
     <div>
     <h2><a href="/?id=' . $post->id . '">' . $post->title . '</h2></a><br/>
-    <p>' . $post->content . '</p>
+    <p>' . $post->intro . '</p>
     </div></li>
     </div>'
     ;

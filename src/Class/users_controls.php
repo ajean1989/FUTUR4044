@@ -36,16 +36,45 @@ Class UsersControls extends UsersSafety
     // Affiche un message si l'utilisateur est déjà enregistrer
     {
 
-        foreach($GLOBALS['listUsers'] as $user)
+        if(isset($_SESSION['mail'])) // En cas de modification de profil
         {
-            if($user->mail === $this->inputMail)
+            if($_SESSION['mail'] !== $this->inputMail)
             {
-                $_SESSION['error'] = ':: Adresse mail déjà enregistrée ::';
-                header('location: /inscription');
-                exit();
+                foreach($GLOBALS['listUsers'] as $user)
+                {
+                    if($user->mail === $this->inputMail)
+                    {
+                        $_SESSION['error'] = ':: Modification impossible :: Adresse mail déjà enregistrée ::';
+                        header('location: /profil');
+                        exit();
+                    }
+                }
+            }
+        }
+        else    // En cas d'inscription
+        {
+            foreach($GLOBALS['listUsers'] as $user)
+            {
+                if($user->mail === $this->inputMail)
+                {
+                    $_SESSION['error'] = ':: Adresse mail déjà enregistrée ::';
+                    header('location: /inscription');
+                    exit();
+                }
             }
         }
 
+    }
+
+
+    public function comparePassword()
+    {
+        if($_POST['newPassword'] !== $_POST['newPasswordR'])
+        {
+            $_SESSION['error'] = ':: Les nouveaux mots de passe ne sont pas identiques ::';
+            header('location: /password');
+            exit;
+        }
     }
 
 }
