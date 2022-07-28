@@ -6,8 +6,6 @@ declare(strict_types=1);
 Class UsersSafety extends UsersInputs implements Safety
 {
 
-    // Paramètres utiles
-
     private int $lenName;
     private int $lenLastName;
     private int $lenBirth;
@@ -17,7 +15,6 @@ Class UsersSafety extends UsersInputs implements Safety
     private string $regexLastName;
     private string $regexBirth;
     private string $regexPassword;
-
 
 
     public function getLen($type='new')    
@@ -34,7 +31,6 @@ Class UsersSafety extends UsersInputs implements Safety
                 $this->lenPassword = strlen($this->inputPassword);
         }
     }
-
 
 
     public function setRegex($type='new')
@@ -54,28 +50,19 @@ Class UsersSafety extends UsersInputs implements Safety
     }
 
 
-
     public function errorExitAndMessage($message, $redirect)
     {
-
         $_SESSION['error'] = $message;
         header('location:' . $redirect);
         exit();
-
     }
-
-
 
 
     public function inputsControls($type='new')
     {
-
         $this->getLen($type);
 
         $this->setRegex($type);
-
-   
-
     
         $pageName = $_SERVER['REQUEST_URI'];
 
@@ -111,10 +98,9 @@ Class UsersSafety extends UsersInputs implements Safety
                 $this->errorExitAndMessage($message, $pageName);
             }
         }
-    
-
     }
 
+    
 
     public function htmlspecialchars($type='new')
     {

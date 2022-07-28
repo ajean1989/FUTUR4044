@@ -7,7 +7,7 @@ declare(strict_types=1);
 $PostsInputs = new PostsInputs;
 $PostsSafety = new PostsSafety;
 $PostsControls = new PostsControls;
-$AddPost = new AddPost ;
+$AddPost = new CRUDPost ;
 
 $AddPost->addPost();
 

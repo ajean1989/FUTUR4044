@@ -26,15 +26,11 @@ declare(strict_types=1);
 
 // Bloque l'acces si trop de tentative 
 
-
 if(isset($_SESSION['try']) && $_SESSION['try']>3)
 {
     $_SESSION['error'] = ':: Trop d\'echecs Kasparov, reviens dans ... 180 minutes ::';
     require_once $controlsDirectory . 'main.php';
 }
-
-
-
 
 
 

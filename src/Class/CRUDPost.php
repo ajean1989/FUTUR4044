@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 
 
-Class AddPost extends PostsControls
+Class CRUDPost extends PostsControls
 {
 
     public object $LastPost;
@@ -43,18 +43,14 @@ Class AddPost extends PostsControls
         Images::PostIllustrations();
 
 
-
-
-
-
-
-
         
     }
 
 
+
+
     public function modifyPost()
-    {
+    {  
 
         Db::connexion();
 
@@ -79,5 +75,18 @@ Class AddPost extends PostsControls
         Images::postMainImg('modify');
 
         Images::PostIllustrations('modify');
+    }
+
+
+    public function deletePost()
+    {
+
+        Db::connexion();  
+
+        $queryUpdatePassword = 'DELETE FROM posts WHERE id = \'' . $_SESSION['postId'] . '\'';
+        $statement = Db::$pdo->prepare($queryUpdatePassword);
+        $statement->execute();  
+        
+      
     }
 }

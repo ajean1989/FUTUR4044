@@ -8,10 +8,11 @@ Class Images
 {
 
 
-public static function postMainImg($type = 'Last Post')
+    public static function postMainImg($type = 'Last Post') 
+    // Traite l'image de couverture et créer le dossier images/post/$id
     {
 
-        if($type === 'Last Post')
+        if($type === 'Last Post')   // Pour un nouveau post
         {
 
         $lastPostQuery = 'SELECT * FROM posts WHERE id = (SELECT max(id) FROM posts)';
@@ -22,14 +23,13 @@ public static function postMainImg($type = 'Last Post')
         mkdir('./images/posts/' . $LastPost->id);
 
         }
-        else
+        else  // En cas de modification du post
         {
-            $lastPostQuery = 'SELECT * FROM posts WHERE id = \'' . $_SESSION['postId'] . '\'';
-            $LastPost = Db::fetch($lastPostQuery, 'Posts');
+            $PostQuery = 'SELECT * FROM posts WHERE id = \'' . $_SESSION['postId'] . '\'';
+            $LastPost = Db::fetch($PostQuery, 'Posts');
 
             $postId = $_SESSION['postId'];
         }
-
 
 
         //Test des images (extension, taille)
@@ -50,7 +50,6 @@ public static function postMainImg($type = 'Last Post')
         if(in_array($ext,$allow_ext))
         {
             move_uploaded_file($img['tmp_name'], './images/posts/' .  $postId . '/couv_'. $postId . $ext );
-            //Place l'image de couverture dans ce dossier avec le nom couv_$id
         }
         else
         {
@@ -64,7 +63,7 @@ public static function postMainImg($type = 'Last Post')
   
         $imgName = (string) 'couv_' . $postId . $ext;
 
-        if($type === 'Last Post')
+        if($type === 'Last Post')   // Pour un nouveau post
         {  
             $updateImgQuery = 'UPDATE posts SET img = :img WHERE id = (SELECT * FROM (SELECT id FROM posts WHERE id = (SELECT max(id) FROM posts)) AS m)';  
             // https://stackoverflow.com/questions/45494/mysql-error-1093-cant-specify-target-table-for-update-in-from-clause
@@ -74,7 +73,7 @@ public static function postMainImg($type = 'Last Post')
                 'img'=>$imgName,
             ]);
         }
-        else
+        else    // En cas de modification du post
         {
             $updateImgQuery = 'UPDATE posts SET img = :img WHERE id = \'' . $_SESSION['postId'] . '\'';  
             $query = $updateImgQuery;
@@ -93,7 +92,7 @@ public static function postMainImg($type = 'Last Post')
     public static function PostIllustrations($type = 'Last Post')
     {
 
-        if($type === 'Last Post')
+        if($type === 'Last Post')   // Pour un nouveau post
         {
 
             $lastPostQuery = 'SELECT * FROM posts WHERE id = (SELECT max(id) FROM posts)';
@@ -101,10 +100,10 @@ public static function postMainImg($type = 'Last Post')
 
             $postId = $LastPost->id;
         }
-        else
+        else    // En cas de modification du post
         {
-            $lastPostQuery = 'SELECT * FROM posts WHERE id = \'' . $_SESSION['postId'] . '\'';
-            $LastPost = Db::fetch($lastPostQuery, 'Posts');
+            $PostQuery = 'SELECT * FROM posts WHERE id = \'' . $_SESSION['postId'] . '\'';
+            $LastPost = Db::fetch($PostQuery, 'Posts');
 
             $postId = $_SESSION['postId'];
         }

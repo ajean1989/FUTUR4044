@@ -49,6 +49,7 @@ $imagesDirectory = $rootDir . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARAT
 if(isset($_GET['id']))
 {
     $postId = (int) $_GET['id']; 
+    $_SESSION['postId'] = $postId;
 }
 else
 {
@@ -80,7 +81,7 @@ require_once $classDirectory . 'inputs.php';
 require_once $classDirectory . 'posts_inputs.php';
 require_once $classDirectory . 'posts_safety.php';
 require_once $classDirectory . 'posts_controls.php';
-require_once $classDirectory . 'addPost.php';
+require_once $classDirectory . 'CRUDPost.php';
 require_once $classDirectory . 'posts.php';
 require_once $classDirectory . 'users_inputs.php';
 require_once $classDirectory . 'users_safety.php';
@@ -133,6 +134,12 @@ switch($uri)
     case '/password' :
         require_once $controlsDirectory . 'modifyPassword.php';
     break;    
+    case '/deleteUser' :
+        require_once $controlsDirectory . 'deleteUser.php';
+    break;  
+    case '/deletePost' :
+        require_once $controlsDirectory . 'deletePost.php';
+    break; 
 
     default : 
     echo 'Erreur 404 : page non trouvée sur l\'internet 🤓';

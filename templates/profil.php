@@ -34,7 +34,24 @@ echo
     </ul>
 </p>';
 
+?>
+<!--
+<form method="post" action="<?php $controlsDirectory . 'signin.php' ?>">
+        <input class="btn--form" type="submit"/>
+</form>
+-->
+
+<a classe="btn--form" href= "/deleteUser"> Delete </a>
+
+
+
+
+<?php
+
+//Test::var_dump($controlsDirectory);
 
 $content=ob_get_clean();
 
 require_once $layoutsDirectory . 'html.php';
+
+?>

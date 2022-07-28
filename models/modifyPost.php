@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 if(isset($_POST['title']))
 {
-    $AddPost = new AddPost;
+    $AddPost = new CRUDPost;
     $AddPost->modifyPost();
 }
 else
@@ -15,7 +15,7 @@ else
     $Post = Db::fetch($postQuery, 'posts');
 
     
-    //Test::var_dump($Post->category_id);
+    
 
     $categoryQuery = 'SELECT name FROM category WHERE id = \'' . $Post->category_id . '\'';
 

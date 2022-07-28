@@ -1,14 +1,9 @@
 <?php 
 
-// Class récupérant les articles et les classent par catégorie si besoin
-
-// voir comment récupérer un blob, 
-
-// une date est une string traitée avec DateTime
 
 declare(strict_types=1);
 
-Class Posts extends PostsControls
+Class Posts extends CRUDPost
 {
 
     // var in db
@@ -21,52 +16,12 @@ Class Posts extends PostsControls
     public mixed $projection;
     public int $public_share;
 
+    // Pour le rendu main
+
     public string $intro;
 
     
-
-   
-    /* 
-
-
-    public function postImg() : string
-    {
-
-        $this->getPosts('*');
-
-        $handle = opendir('./images/posts');
-
-        $this->imgName = readdir($handle);
-
-
-
-        while(readdir($handle) !== false)
-        {
-            if(isset($_GET['id']))
-            {
-            preg_match('#post_' . $_GET['id'] . '\.[\w]{3,4}#', readdir($handle));
-  
-            var_dump(readdir($handle));
-            echo '<br/>';
-            }
-            else
-            {
-                preg_match('#post_' . $this->Posts->posts->id . '\.[\w]{3,4}#', readdir($handle));
-  
-            var_dump(readdir($handle));
-            echo '<br/>';
-            }
-        
-        }
-
-        closedir($handle);
-
-
-
-        return $this->imgName;
-    }
-
-    */
+    // Sorte de Markdown
 
     public function imgTreatment()
     {
@@ -125,7 +80,6 @@ Class Posts extends PostsControls
     public function returnIntro()
     {
         $firstExplode = explode('[intro]', $this->content);
-        //Test::var_dump($firstExplode);
         $secondExplode = explode('[/intro]', $firstExplode[1]);
         $this->intro = $secondExplode[0];
 
@@ -151,8 +105,7 @@ Class Posts extends PostsControls
             $i++;
         }
 
-        //Test::var_dump($explodeContent);
-
+ 
         $this->content = implode(' ', $explodeContent);
         
         

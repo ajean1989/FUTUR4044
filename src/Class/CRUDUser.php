@@ -16,6 +16,8 @@ Class CRUDUser extends UsersControls
 
         $this->inputsControls();
 
+        $this->htmlspecialchars();
+
         $this->userAlreadyInDb();
 
         $this->birthMessage();
@@ -81,6 +83,19 @@ Class CRUDUser extends UsersControls
         password = \'' . $this->inputPassword . '\'
         WHERE mail = \'' . $_SESSION['mail'] . '\'';
         
+        $statement = Db::$pdo->prepare($queryUpdatePassword);
+        $statement->execute();  
+        
+      
+    }
+
+
+    public function deleteUser()
+    {
+
+        Db::connexion();  
+
+        $queryUpdatePassword = 'DELETE FROM users WHERE mail = \'' . $_SESSION['mail'] . '\'';
         $statement = Db::$pdo->prepare($queryUpdatePassword);
         $statement->execute();  
         

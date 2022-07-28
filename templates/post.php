@@ -20,7 +20,8 @@ echo
 
 if($_SESSION['admin']===1)
 {
-    echo '<a href="/modifyPost/?id=' . $Post->id . '">Modifier l\'article</a>';
+    echo '<a href="/modifyPost/?id=' . $Post->id . '">Modifier l\'article</a><br/>
+    <a classe="btn--form" href= "/deletePost"> Delete </a>';
            
 }
 
