@@ -1,7 +1,43 @@
 @mixin button
 {
     padding : 1rem;
-    margin : 1rem;
+    padding-top : 0.5rem;
+    padding-bottom : 0.5rem;
+    margin : 2rem;
     border-radius: 25px;
     color : $sec-background-color;
+}
+
+@mixin center-laser
+{
+    // Dimension du bloc de :hover
+    //background: greenyellow;  // Couleur de test
+    height : 100%;
+    width : 8%;
+ 
+
+    // Centrer la div
+
+    display : flex;
+    justify-content : center;
+    align-items: center;
+    //flex-basis : auto;
+    
+}
+
+@mixin laser
+{
+    background: #D13888;
+    position: absolute;
+    //top : 100%;
+    height : 4px;
+    //margin :auto;
+
+
+}
+
+@mixin transition-laser
+{
+    transition: translate, rotate, 0.3s;
+    transition-timing-function: ease-out;
 }

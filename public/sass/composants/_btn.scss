@@ -9,7 +9,7 @@
     {
         @include button;
         background: linear-gradient(to right, $background-color, $primary-color);
-        padding-left : 2rem;
+        margin : 2rem;
     }
 
     &--form

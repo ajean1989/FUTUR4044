@@ -7,14 +7,14 @@ header
     justify-content: left;
     align-items: center;
 
-    background-color: $primary-color;
+    background: radial-gradient(farthest-side at left 5% top 10%, $primary-color 0%,   $background-color 100%);
 
-    
 }
 
 header ul
 {
     width : 320px;
+    //background: green;
 
 
 }
@@ -22,4 +22,253 @@ header ul
 header a
 {
     color: $sec-background-color;
+    width : 250px;
 }
+
+
+header img
+{
+
+    // background: yellow;  // Couleur de test 
+    width : 100%;
+
+
+}
+
+.animation_header
+{
+ 
+    //background: white;  // Couleur de test 
+    width : 100%;
+    height: 100%;
+    display : flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+  
+   
+
+   
+
+    &__center1
+    {
+        @include center-laser;
+
+        &:hover .animation_header__center1--laser1
+        {
+             transform: translate(-11px, -11px) rotate(89deg);
+        }
+
+        &--laser1
+        {
+            @include laser;
+            @include transition-laser;
+
+            width: 110px;
+            transform: translate(0px, 0px) rotate(91deg);
+
+
+        }
+
+    }
+    &__center2
+    {
+        @include center-laser;
+
+        &:hover .animation_header__center2--laser2
+        {
+             transform: translate(-30px, -25px) rotate(49deg);
+        }
+
+
+        &--laser2
+        {
+            @include laser;
+            @include transition-laser;
+
+            width: 45px;
+            transform: translate(-25px, -15px) rotate(52deg);
+
+            
+ 
+        }
+
+    }
+    &__center3
+    {
+
+        @include center-laser;
+
+        &:hover .animation_header__center3--laser3
+        {
+            transform: translate(-20px, -25px) rotate(20deg);
+        }
+
+        
+
+        &--laser3
+        {
+            @include laser;
+            @include transition-laser;
+
+            width: 100px;
+            transform: translate(-10px, -20px) rotate(24deg);
+        }
+
+    }
+
+   
+    &__center4
+    {
+
+        @include center-laser;
+
+        &:hover .animation_header__center4--laser4
+        {
+            transform: translate(-65px, -20px) rotate(120deg);
+        }
+
+
+        &--laser4
+        {
+            @include laser;
+            @include transition-laser;
+
+            width: 100px;
+            transform: translate(-70px, -11px) rotate(113deg);
+        }
+
+    }
+
+
+    &__center5
+    {
+
+        @include center-laser;
+
+        &:hover .animation_header__center5--laser5
+        {
+            transform: translate(-25px, -10px) rotate(170deg);
+        }
+
+
+        &--laser5
+        {
+            @include laser;
+            @include transition-laser;
+
+            width: 105px;
+            transform: translate(-35px, -3px) rotate(165deg);
+        }
+
+    }
+    &__center6
+    {
+
+        @include center-laser;
+
+        &:hover .animation_header__center6--laser6
+        {
+            transform: translate(-25px, -12px) rotate(92deg);
+        }
+
+
+        &--laser6
+        {
+            @include laser;
+            @include transition-laser;
+
+            width: 100px;
+            transform: translate(-25px, -3px) rotate(99deg);
+        }
+
+    }
+    &__center7
+    {
+
+        @include center-laser;
+
+        &:hover .animation_header__center7--laser7
+        {
+            transform: translate(-25px, 25px) rotate(83deg);
+        }
+
+
+        &--laser7
+        {
+            @include laser;
+            @include transition-laser;
+            
+            width: 56px;
+            transform: translate(-30px, 30px) rotate(90deg);
+        }
+
+    }
+    &__center8
+    {
+
+        @include center-laser;
+
+        &:hover .animation_header__center8--laser8
+        {
+            transform: translate(-25px, 0px) rotate(67deg);
+        }
+
+
+        &--laser8
+        {
+            @include laser;
+            @include transition-laser;
+            
+            width: 111px;
+            transform: translate(-35px, 8px) rotate(65deg);
+        }
+
+    }
+    &__center9
+    {
+
+        @include center-laser;
+
+        &:hover .animation_header__center9--laser9
+        {
+            transform: translate(-13px, -56px) rotate(25deg);
+        }
+
+
+        &--laser9
+        {
+            @include laser;
+            @include transition-laser;
+
+            width: 35px;
+            transform: translate(-18px, -54px) rotate(22deg);
+        }
+
+    }
+    &__center10
+    {
+
+        @include center-laser;
+
+        &:hover .animation_header__center10--laser10
+        {
+            transform: translate(-5px, 35px) rotate(113deg);
+        }
+
+
+        &--laser10
+        {
+            @include laser;
+            @include transition-laser;
+            
+            width: 72px;
+            transform: translate(-15px, 30px) rotate(110deg);
+        }
+
+    }
+
+    
+}
+
