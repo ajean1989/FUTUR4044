@@ -3,14 +3,37 @@
 {
     @include button;
     background: linear-gradient(to right, $primary-color, $background-color);
-    padding-left : 2rem;
 
+    &--header
+    {
+        @include button;
+        background: $background-color;
+        margin : 2rem;
+
+        &:hover
+        {
+
+            background: none;
+        }
+    }
+    
     &--nav
     {
         @include button;
-        background: linear-gradient(to right, $background-color, $primary-color);
+        background: linear-gradient(to right, $primary-color, $background-color);
         margin : 2rem;
+        padding-left : 2rem;
+        transform : translate(0px, 0px);
+        transition : transform 0.5s;
+        
+
+        &:hover
+        {
+            transform : translate(-10px, 0px);
+        }
     }
+
+
 
     &--form
     {

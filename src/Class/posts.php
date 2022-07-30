@@ -61,6 +61,14 @@ Class Posts extends CRUDPost
         
     }
 
+    public function pInPost()
+    {
+
+        $this->content = preg_replace('-\[p\]-', '<p>', $this->content);
+        $this->content = preg_replace('-\[/p\]-', '</p>', $this->content);
+        
+    }
+
     public function emInPost()
     {
 

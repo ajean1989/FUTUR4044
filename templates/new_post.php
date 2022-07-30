@@ -95,7 +95,9 @@ else
 
 [intro] Introduction [/intro]
 
-Article [em] important [/em] : [a=http://www.sojacques.com] sur le tofu [/a] 
+[p]
+Article [em] important [/em] : [a=http://www.sojacques.com] sur le tofu [/a]
+[/p] 
 
     </textarea>
 

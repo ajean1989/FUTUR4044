@@ -1,0 +1,39 @@
+.post
+{   
+    display : flex;
+    flex-direction : column;
+    //align-items: center;
+    & :nth-child(1)
+    {
+       width : 90%;
+       max-height: 500px;
+    }
+    
+    & h1
+    {
+        font-size : 3rem;
+    }
+
+    & a
+    {
+        text-decoration : underline dotted $second-color;
+        color : $sec-background-color;
+        &:hover
+        {
+            //font-size :1.02em;
+            text-decoration : underline dotted $primary-color;
+        }
+        &:visited
+        {
+            color : $sec-background-color;
+
+        }
+    }
+
+    & img 
+    {
+        margin : auto;
+        width : 50%; 
+        max-height: 500px;
+    }
+}

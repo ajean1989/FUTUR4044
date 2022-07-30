@@ -21,59 +21,21 @@
 */
 
 
-
-
-
-
-// Variables de gestion des dossiers
-
-
 declare(strict_types=1);
-
 
 session_start();
 
 
-$rootDir = dirname(__DIR__);
 
-$controlsDirectory = $rootDir . DIRECTORY_SEPARATOR . 'controls' . DIRECTORY_SEPARATOR ;
-$modelsDirectory = $rootDir . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR ;
-$templatesDirectory = $rootDir . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR ;
-$layoutsDirectory = $rootDir . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'layouts' . DIRECTORY_SEPARATOR ;
-$classDirectory = $rootDir . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Class' . DIRECTORY_SEPARATOR ;
-$imagesDirectory = $rootDir . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR ;
+// Chargement des varibles
 
-
-// Variable séléction de l'article
-
-if(isset($_GET['id']))
-{
-    $postId = (int) $_GET['id']; 
-    $_SESSION['postId'] = $postId;
-}
-else
-{
-    $postId = (int) 0; 
-}
-
-
-if(isset($_GET['theme']))
-{
-    $category = $_GET['theme'];
-}
-else
-{
-    $category = '';
-}
-
-
+require_once './../src/var.php';
 
 
 
 // Chargement des Class 
 
 require_once $classDirectory . 'test.php';
-
 
 require_once $classDirectory . 'db.php';
 require_once $classDirectory . 'safety.php';
@@ -93,8 +55,8 @@ require_once $classDirectory . 'images.php';
 
 
 
-//Contrôle de l'url et chargement des controlers
 
+//Contrôle de l'url et chargement des controlers
 
 $uri = $_SERVER['REQUEST_URI']; // $var = (condition) ? true : false
 

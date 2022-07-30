@@ -40,6 +40,18 @@
   font-family: "Roboto-Regular";
   src: url("./polices/Roboto-Regular.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Roboto-BoldCondensed";
+  src: url("./polices/Roboto-BoldCondensed.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("./polices/Roboto-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("./polices/Roboto-Medium.ttf") format("truetype");
+}
 body {
   position: fixed;
   width: 100%;
@@ -53,11 +65,27 @@ a {
 }
 a:visited {
   color: none;
+  text-decoration: none;
 }
 
 ul {
   list-style-type: none;
   padding-left: 0px;
+}
+
+h1 {
+  font-family: Roboto-Bold;
+  font-size: 2rem;
+}
+
+h2 {
+  font-family: Roboto-Medium;
+  font-size: 1.5rem;
+}
+
+em {
+  font-style: normal;
+  font-family: Roboto-Medium;
 }
 
 body {
@@ -75,7 +103,19 @@ body {
   border-radius: 25px;
   color: #F9EDF5;
   background: linear-gradient(to right, #048ABF, #090C19);
-  padding-left: 2rem;
+}
+.btn--header {
+  padding: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin: 2rem;
+  border-radius: 25px;
+  color: #F9EDF5;
+  background: #090C19;
+  margin: 2rem;
+}
+.btn--header:hover {
+  background: none;
 }
 .btn--nav {
   padding: 1rem;
@@ -84,8 +124,14 @@ body {
   margin: 2rem;
   border-radius: 25px;
   color: #F9EDF5;
-  background: linear-gradient(to right, #090C19, #048ABF);
+  background: linear-gradient(to right, #048ABF, #090C19);
   margin: 2rem;
+  padding-left: 2rem;
+  transform: translate(0px, 0px);
+  transition: transform 0.5s;
+}
+.btn--nav:hover {
+  transform: translate(-10px, 0px);
 }
 .btn--form {
   padding: 1rem;
@@ -108,6 +154,13 @@ header {
 
 header ul {
   width: 320px;
+}
+header ul li img {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 38px;
+  top: 33px;
 }
 
 header a {
@@ -329,6 +382,7 @@ nav a {
 }
 
 nav ul {
+  position: absolute;
   padding-top: 2rem;
 }
 
@@ -341,7 +395,7 @@ section {
 .main {
   margin: auto;
   padding: 2rem;
-  width: 80%;
+  width: 60%;
   color: #F9EDF5;
 }
 .main__bann {
@@ -376,19 +430,6 @@ section {
   margin-right: 20px;
 }
 
-/*
-.main a 
-{
-    color : $sec-background-color;
-}
-
-
-.main li
-{
-    padding : 1rem;
-}
-
-*/
 form {
   width: 50%;
   margin: auto;
@@ -401,6 +442,33 @@ input, select {
 textarea {
   width: 100%;
   height: 20rem;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+}
+.post :nth-child(1) {
+  width: 90%;
+  max-height: 500px;
+}
+.post h1 {
+  font-size: 3rem;
+}
+.post a {
+  text-decoration: underline dotted #D13888;
+  color: #F9EDF5;
+}
+.post a:hover {
+  text-decoration: underline dotted #048ABF;
+}
+.post a:visited {
+  color: #F9EDF5;
+}
+.post img {
+  margin: auto;
+  width: 50%;
+  max-height: 500px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -11,6 +11,7 @@ require_once $modelsDirectory . 'post.php';
 $Post->imgTreatment();
 $Post->hyperlinkInPost();
 $Post->titleInPost();
+$Post->pInPost();
 $Post->emInPost();
 $Post->intro();
 $Post->nl2brContent();

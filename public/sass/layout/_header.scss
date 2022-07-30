@@ -17,6 +17,16 @@ header ul
     //background: green;
 
 
+    & li img 
+    {
+        position : absolute ;
+        width : 24px;
+        height: 24px;
+        left: 38px;
+        top: 33px;
+    }
+
+
 }
 
 header a

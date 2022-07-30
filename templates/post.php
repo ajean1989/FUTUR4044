@@ -12,7 +12,8 @@ ob_start();
 
 
 echo 
-'<h1>' . $Post->title . '</h1>' . 
+'<div class="post">
+<h1>' . $Post->title . '</h1>' . 
 
 '<img src="/images/posts/' . $Post->id .'/' . $Post->img . '" alt="images de couverture"/>' .
     
@@ -24,6 +25,7 @@ if($_SESSION['admin']===1)
     <a classe="btn--form" href= "/deletePost"> Delete </a>';
            
 }
+echo '</div>';
 
 $content=ob_get_clean();
 

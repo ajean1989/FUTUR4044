@@ -10,9 +10,28 @@ echo '<ul>';
 
 foreach($listCategory as $category)
 {
-    echo '<li class="btn"><a href="/?theme=' . $category->name . '">' . $category->name . '</a></li>'; //problème type de texte dans l'url pour géoplitique & transport
+    
+    echo '<a href="/?theme=' . $category->name . '"><li class="btn--nav">' . $category->name . '</li></a>';
+    
 }
 
-echo '<li class="btn"><a href="/disconnect">Déconnexion</a></li>';
+/*
+
+echo '<li class="btn"><a href="/?theme=' . $listCategory[0]->name . '">' . $listCategory[0]->name . '</a></li>';
+
+echo '<li class="btn"><a href="/?theme=' . $listCategory[0]->name . '">' . $listCategory[0]->name . '</a></li>';
+
+echo '<li class="btn"><a href="/?theme=' . $listCategory[0]->name . '">' . $listCategory[0]->name . '</a></li>';
+
+echo '<li class="btn"><a href="/?theme=' . $listCategory[0]->name . '">' . $listCategory[0]->name . '</a></li>';
+
+echo '<li class="btn"><a href="/?theme=' . $listCategory[0]->name . '">' . $listCategory[0]->name . '</a></li>';
+
+echo '<li class="btn"><a href="/?theme=' . $listCategory[0]->name . '">' . $listCategory[0]->name . '</a></li>';
+
+*/
+
+
+echo '<li class="btn--nav"><a href="/disconnect">Déconnexion</a></li>';
 
 echo '</ul>';

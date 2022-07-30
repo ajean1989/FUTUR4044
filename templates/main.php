@@ -80,7 +80,7 @@ foreach($listMainPosts as $post)
     echo 
     '<div class="main__posts">
     <li>
-    <img class="main__postImg" src="/images/posts/' . $post->id . '/' . $post->img . '" alt="images de couverture"/>
+    <a href="/?id=' . $post->id . '"><img class="main__postImg" src="/images/posts/' . $post->id . '/' . $post->img . '" alt="images de couverture"/></a>
     <div>
     <h2><a href="/?id=' . $post->id . '">' . $post->title . '</h2></a><br/>
     <p>' . $post->intro . '</p>
