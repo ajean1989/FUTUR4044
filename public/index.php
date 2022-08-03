@@ -81,7 +81,7 @@ switch($uri)
     case '/nouvel_article' :
         require_once $controlsDirectory.'new_post.php';
         break;
-    case '/?theme=' . $category :
+    case '/?theme=' . $categoryUrl :
         require_once $controlsDirectory.'category.php';
         break;
     case '/?id=' . $postId :
@@ -101,6 +101,9 @@ switch($uri)
     break;  
     case '/deletePost' :
         require_once $controlsDirectory . 'deletePost.php';
+    break; 
+    case '/sharePost' :
+        require_once $controlsDirectory . 'sharePost.php';
     break; 
 
     default : 

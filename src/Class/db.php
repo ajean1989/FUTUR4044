@@ -16,12 +16,21 @@ Class Db
     {
         try
             {
-
+                /*
             self::$pdo = new PDO('mysql:host=localhost;dbname=planete_futur;charset=utf8;port=3306',
                     'adrien',
                     'adr13NjMy',
                     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
                     )   ;
+                */
+
+        
+            self::$pdo = new PDO('mysql:host=sojacqomysql.mysql.db;port=3306;dbname=sojacqomysql;charset=utf8',
+            'sojacqomysql',
+            'adr13NjMy',
+            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+            )   ;
+
             }
         catch (Exception $e)
             {

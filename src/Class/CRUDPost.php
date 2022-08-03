@@ -60,11 +60,16 @@ Class CRUDPost extends PostsControls
 
         $this->htmlspecialchars();
 
+        $ModificationDate = new Datetime();
+        $ModificationDate = $ModificationDate->format('Y-m-d');
+     
+
         $query = 'UPDATE posts SET 
         category_id = \'' . $_POST['category'] . '\', 
         title = \'' . $this->inputTitle . '\',
         content = \'' . $this->inputContent . '\',
-        projection = \'' .$this->inputHorizon . '\'
+        projection = \'' .$this->inputHorizon . '\',
+        modificationDate = \'' . $ModificationDate . '\'
         WHERE id = ' . $_SESSION['postId'] ;
         $statement = Db::$pdo->prepare($query);
         $statement->execute(); 

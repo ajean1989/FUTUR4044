@@ -1,8 +1,25 @@
 footer
 {
+    grid-area: footer;
+
+    background: linear-gradient($background-color 0%, $background-color 40%, $primary-color 100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color : $sec-background-color;
+    font-size : 0.7rem;
 
 
-    background: linear-gradient($primary-color 0%, $background-color 100%);
+
+
 
     
 }
+
+.footer
+{
+     text-align: center;
+}
+

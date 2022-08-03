@@ -6,12 +6,15 @@
 
 require_once $modelsDirectory . 'navbar.php';
 
+
+
 echo '<ul>';
 
 foreach($listCategory as $category)
 {
-    
-    echo '<a href="/?theme=' . $category->name . '"><li class="btn--nav">' . $category->name . '</li></a>';
+    $categoryUrl = urlencode($category->name);
+
+    echo '<a href="/?theme=' . $categoryUrl . '"><li class="btn--nav">' . $category->name . '</li></a>';
     
 }
 

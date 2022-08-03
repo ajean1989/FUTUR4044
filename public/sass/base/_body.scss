@@ -1,13 +1,22 @@
 body
 {
-    position : fixed;
+    position : absolute;
     width: 100%;
+    //min-height: 100vh;
     height: 100%;
     margin : 0px;
-    
                 
     font-family: Roboto-Regular;
+
+    @media screen and (max-width : 1500px)
+    {
+        position : static;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        min-height: 100vh;
+    }
 }
+
 
 
 a

@@ -111,7 +111,7 @@ Class Images
 
 
 
-        for($i=1 ; $i<6 ; $i++) //Form propose que 5 entrées
+        for($i=0 ; $i<6 ; $i++) //Form propose que 5 entrées
         {
             
 
@@ -132,8 +132,15 @@ Class Images
                 $allow_ext = array(".jpg",".png",".gif");
                 if(in_array($ext,$allow_ext))
                 {
+                    if($i === 0) // Sinon impossible de récupérer l'ext dans l'affichage de la miniature. Ici on peut utilser la colone image_name de la bd.
+                    {
+                        move_uploaded_file($img['tmp_name'], './images/posts/' .  $postId . '/mincouv_'. $postId . $ext ); 
+                    }
+                    else
+                    {
                     move_uploaded_file($img['tmp_name'], './images/posts/' .  $postId . '/img_'. $i . $ext );
                     //écrase si nouveau fichier
+                    }
                 }
                 else
                 {

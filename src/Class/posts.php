@@ -9,7 +9,8 @@ Class Posts extends CRUDPost
     // var in db
 
     public int $id;
-    public mixed $date;
+    public mixed $creationDate;
+    public mixed $modificationDate;
     public int $category_id;
     public string $title;
     public string $content;
@@ -87,9 +88,17 @@ Class Posts extends CRUDPost
 
     public function returnIntro()
     {
+        try
+        {
         $firstExplode = explode('[intro]', $this->content);
         $secondExplode = explode('[/intro]', $firstExplode[1]);
         $this->intro = $secondExplode[0];
+        }
+        catch(Exception $e)
+        {
+            echo 'L\'article n\'a pas d\'introduction :'
+. $e->getMessage();
+        }
 
     
     }

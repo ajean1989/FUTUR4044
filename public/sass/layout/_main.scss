@@ -4,12 +4,16 @@
     padding: 2rem;
     width: 60%;
     color : $sec-background-color;
+
+    @media screen and (max-width : 1500px)
+    {
+        width: 90%;
+        margin-top : 70px
+    }
     
 
 
     
-    
-
     &__bann
     {
         background: linear-gradient(to right, $second-color, $background-color);
@@ -27,42 +31,80 @@
     }
 
 
-    &__posts
+    &__posts 
     {
-      
-
-        
-        //background: linear-gradient($sec-background-color, $sec-background-color 50%, $background-color);
         background-color: $sec-background-color;
         color: $background-color;
         border-radius : 20px;
         margin-top : 2rem;
         padding: 2rem;
 
-        & li
+        &:hover h2 a
         {
-            display: flex;
+            color : $second-color;
 
-            &:nth-child(2)
-            {
-                margin-left : 20px;
-            }
         }
 
         
+        & li:nth-child(1)
+        {
+            display: flex;
+            justify-content: space-between;
+            @media screen and (max-width : 700px)
+            {
+                display: flex;
+                flex-direction: column;
+            }
+          
+        }
 
+        &__postImg
+        {
+            width: 200px;
+            height: 200px;
+            background-size: cover;
+            margin-right: 20px;
+        }
 
-    }
+        &__content
+        {
+            flex: 1;
 
-    &__postImg
-    {
+    
+        }
+
+        &__tags
+        {
+
+           & ul 
+           {
+            margin-bottom: 10px;
+            margin-top: auto;
+            & li 
+            {
+                font-size: 0.8rem;
+                margin-top : 5px;
+                padding : 2px 20px 2px 20px;
+                border-radius: 5px;
+                background: $primary-color;
+                color : $sec-background-color;
+            }
+           }
+           
+        }
+        &__postImg
+        {
         
-        width: 200px;
-        height: 200px;
-        background-size: cover;
-        margin-right: 20px;
+            width: 200px;
+            height: 200px;
+            background-size: cover;
+            margin-right: 20px;
+        }
     }
 }
+
+        
+
 
 
 

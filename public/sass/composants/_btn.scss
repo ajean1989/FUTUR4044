@@ -25,11 +25,22 @@
         padding-left : 2rem;
         transform : translate(0px, 0px);
         transition : transform 0.5s;
+        @media screen and (max-width : 1080px)
+        {
+            margin : 0.2rem;
+            padding : 0.2rem;
+            transition: none;
+
+        }
         
 
         &:hover
         {
             transform : translate(-10px, 0px);
+            @media screen and (max-width : 1080px)
+        {
+            transform: none;
+        }
         }
     }
 

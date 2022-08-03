@@ -77,16 +77,48 @@ echo '<ul>';
 
 foreach($listMainPosts as $post)
 {
-    echo 
-    '<div class="main__posts">
-    <li>
-    <a href="/?id=' . $post->id . '"><img class="main__postImg" src="/images/posts/' . $post->id . '/' . $post->img . '" alt="images de couverture"/></a>
-    <div>
-    <h2><a href="/?id=' . $post->id . '">' . $post->title . '</h2></a><br/>
-    <p>' . $post->intro . '</p>
-    </div></li>
-    </div>'
-    ;
+    if($post->public_share === 1)
+    {
+        echo 
+        '<div class="main__posts">
+            <li>
+                <a href="/?id=' . $post->id . '"><img class="main__posts__postImg" src="/images/posts/' . $post->id . '/min' . $post->img . '" alt="images de couverture"/></a>
+                <div class ="main__posts__content">
+                    <h2><a href="/?id=' . $post->id . '">' . $post->title . '</h2></a><br/>
+                    <p>' . $post->intro . '</p>
+                </div>
+                <div class ="main__posts__tags">
+                    <ul>
+                        <li>' . $post->projection . '</li>
+                    </ul>
+                </div>
+            </li>
+        </div>'
+        ;
+    }
+    if(isset($_SESSION['admin']))
+    {
+        if($post->public_share === 0 && $_SESSION['admin'] === 1)
+        {
+            echo 
+            '<div class="main__posts">
+                <li>
+                    <a href="/?id=' . $post->id . '"><img class="main__posts__postImg" src="/images/posts/' . $post->id . '/min' . $post->img . '" alt="images de couverture"/></a>
+                    <div class ="main__posts__content">
+                        <h2><a href="/?id=' . $post->id . '">' . $post->title . '</h2></a><br/>
+                        <p>' . $post->intro . '</p>
+                    </div>
+                    <div class ="main__posts__tags">
+                        <ul>
+                            <li>Privé</li>
+                            <li>' . $post->projection . '</li>
+                        </ul>
+                    </div>
+                </li>                    
+            </div>'
+            ;
+        }
+    }
 }
 
 echo '</ul>';

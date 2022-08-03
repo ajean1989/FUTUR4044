@@ -5,6 +5,9 @@ nav
     background-color: $background-color;
 
     color: $sec-background-color;
+
+
+   
 }
 
 
@@ -18,7 +21,26 @@ nav ul
     position : absolute;
     padding-top : 2rem;
 
+    @media screen and (max-width : 1080px)
+    {
+        display : flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    & li 
+    {
+        @media screen and (max-width : 1080px)
+        {
+            margin: 0px;
+        }
+    }
+
 }
+
+
 
 
 

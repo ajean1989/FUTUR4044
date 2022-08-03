@@ -9,6 +9,8 @@ header
 
     background: radial-gradient(farthest-side at left 5% top 10%, $primary-color 0%,   $background-color 100%);
 
+   
+
 }
 
 header ul
@@ -19,7 +21,10 @@ header ul
 
     & li img 
     {
-        position : absolute ;
+        float : left;
+        //position : fixed;
+        bottom : 5px; 
+        right :  5px;
         width : 24px;
         height: 24px;
         left: 38px;
@@ -33,6 +38,7 @@ header a
 {
     color: $sec-background-color;
     width : 250px;
+    
 }
 
 
@@ -41,6 +47,13 @@ header img
 
     // background: yellow;  // Couleur de test 
     width : 100%;
+    
+    @media screen and (max-width : 1024px)
+    {
+       
+        flex : 1;
+        
+    }
 
 
 }
@@ -55,6 +68,14 @@ header img
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+
+    @media screen and (max-width : 1024px)
+    {
+       
+        width : 0%;
+        visibility: hidden;
+        
+    }
 
   
    

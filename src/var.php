@@ -28,9 +28,11 @@ else
 
 if(isset($_GET['theme']))
 {
-    $category = $_GET['theme'];
+    $categoryUrl = urlencode($_GET['theme']);
+    $category = $_GET['theme']; //$_GET est décodé automatiquement
 }
 else
 {
     $category = '';
+    $categoryUrl = '';
 }

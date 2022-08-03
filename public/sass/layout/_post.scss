@@ -2,11 +2,12 @@
 {   
     display : flex;
     flex-direction : column;
-    //align-items: center;
-    & :nth-child(1)
+
+    &__header
     {
-       width : 90%;
-       max-height: 500px;
+        display : flex;
+        justify-content : space-between;
+        font-family: Roboto-Italic;
     }
     
     & h1
@@ -30,10 +31,29 @@
         }
     }
 
-    & img 
+    & img   
     {
         margin : auto;
-        width : 50%; 
-        max-height: 500px;
+
+        
+        &:nth-child(3)   // Format 2:1 environ
+        {
+            width : 100%;
+            height: auto;
+        }
+        
+        
+
+        &:nth-child(n+5)
+        {
+            width : 65%;
+            height: auto;
+        }
+    }
+
+    &__admin
+    {
+        display : flex;
+        justify-content : space-between;
     }
 }

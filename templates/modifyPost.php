@@ -33,27 +33,30 @@ if(isset($_SESSION['error']))
 
         <label for="projection">Horizon</label>  <input type="number" name="projection" id="projection" value="<?= $Post->projection ?>" required/>
 
+        <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
+        <label for="img">Image</label> <input type="file" name="img" id="img" />
+
         <input type="hidden" name="MAX_FILE_SIZE" value="100000">
-        <label for="img">Image</label> <input type="file" name="img" id="img" required/>
+        <label for="img0">Miniature</label> <input type="file" name="img0" id="img0" />
 
         <label for="content">Article</label>  <textarea name="content" id="content" required>
         <?= $Post->content ?>
 
         </textarea>
 
-        <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+        <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
         <label for="img1">Illustration 1</label> <input type="file" name="img1" value=".images/posts/<?= $Post->id ?>/img_1" id="img1">
 
-        <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+        <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
         <label for="img2">Illustration 2</label> <input type="file" name="img2" id="img2">
 
-        <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+        <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
         <label for="img3">Illustration 3</label> <input type="file" name="img3" id="img3">
 
-        <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+        <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
         <label for="img4">Illustration 4</label> <input type="file" name="img4" id="img4">
 
-        <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+        <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
         <label for="img5">Illustration 5</label> <input type="file" name="img5" id="img5">
 
 
@@ -66,7 +69,10 @@ if(isset($_SESSION['error']))
 <?php
 
 
+
 $content = ob_get_clean();
+
+
 
 require_once($layoutsDirectory . 'html.php');
 

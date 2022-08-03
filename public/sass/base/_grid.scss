@@ -2,13 +2,17 @@ body
 {
     display : grid;
     grid-template-columns: 320px auto;
-    grid-template-rows: 160px auto;
+    grid-template-rows: 160px auto 50px;
     grid-template-areas: 
     "header header"
-    "nav main";
+    "nav main"
+    "footer footer";
 
-
-
+    @media screen and (max-width : 1080px)
+    {
+        display : flex;
+        flex-direction : column;
+    }
 
 }
 

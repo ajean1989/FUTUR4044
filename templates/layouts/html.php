@@ -31,9 +31,11 @@
 
 		</section>
 
-		<!--<footer>
+		<footer>
 
-		</footer>-->
+		<div class="footer">- Adrien Jacquenet - ad.jacquenet@gmail.com - Le site n'utilise pas de cookies -</div>
+
+		</footer>
 
 
 	</body>
