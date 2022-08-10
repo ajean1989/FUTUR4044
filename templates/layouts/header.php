@@ -59,25 +59,25 @@ if(isset($_SESSION['mail']) && $_SESSION['admin']===0)
 {
     echo 
 '<ul>
-    <a href="/profil"><li class="btn--header"><img src="./images/header/person.svg"/>' . $_SESSION['name'] .'</li></a>
-    <a href="/disconnect"><li class="btn--header">Déconnexion</li></a>
+    <a href="/Profil"><li class="btn--header"><img src="./images/header/person.svg"/>' . $_SESSION['name'] .'</li></a>
+    <a href="/Disconnect"><li class="btn--header">Déconnexion</li></a>
 </ul>';
 }
 elseif(isset($_SESSION['mail']) && $_SESSION['admin']===1)
 {
     echo 
 '<ul>
-    <a href="/profil"><li class="btn--header">' . $_SESSION['name'] . '</li></a>
-    <a href="/disconnect"><li class="btn--header">Déconnexion</li></a>
-    <a href="/nouvel_article"><li class="btn--header">Nouvel article</li></a>
+    <a href="/Profil"><li class="btn--header">' . $_SESSION['name'] . '</li></a>
+    <a href="/Disconnect"><li class="btn--header">Déconnexion</li></a>
+    <a href="/Nouvel_article"><li class="btn--header">Nouvel article</li></a>
 </ul>';
 }
 else
 {
     echo 
 '<ul>
-    <a href="/connexion"><li class="btn--header">Connexion</li></a>
-    <a href="/inscription"><li class="btn--header">Inscription</li></a>
+    <a href="/Connexion"><li class="btn--header">Connexion</li></a>
+    <a href="/Inscription"><li class="btn--header">Inscription</li></a>
 </ul>';
 }
 

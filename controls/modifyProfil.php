@@ -18,7 +18,7 @@ if(isset($_SESSION['mail']))
         $_SESSION['birth'] = $AddUser->inputBirth;
 
 
-        header("location: /profil");
+        header("location: /Profil");
     }
     else
     {

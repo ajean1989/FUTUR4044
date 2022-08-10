@@ -46,9 +46,9 @@ if(isset($_SESSION['admin']))
     {
         echo '
 <div class = "post__admin">
-    <a class="btn" href="/modifyPost/?id=' . $Post->id . '">Modifier l\'article</a><br/>
-    <a class="btn" href= "/deletePost"> Delete </a><br/>
-    <a class="btn" href="/sharePost">Public : ' . $Post->public_share . ' </a>
+    <a class="btn" href="/ModifyPost/?id=' . $Post->id . '">Modifier l\'article</a><br/>
+    <a class="btn" href= "/DeletePost"> Delete </a><br/>
+    <a class="btn" href="/SharePost">Public : ' . $Post->public_share . ' </a>
 </div>
 
         ';  

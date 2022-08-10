@@ -1,36 +1,13 @@
 <?php
 
-/* 
-
-* Config  des variables de gestion des dossiers (pour que les require soient tous ok peut importe la config)
-
-* Charge les controlers
-
-* Contrôle l'url demandé pour lancer la fonction (controler) associée
-
-    Pages / url :
-        main / '' : Class PageInfo et Users gère les log 
-        sign in / connexion
-        sign up / inscription
-        profil / profil
-        disconnect /
-        catégory=# / $category
-        article=# / #idArticle
-
-
-*/
-
-
 declare(strict_types=1);
 
 session_start();
 
 
-
 // Chargement des varibles
 
 require_once './../src/var.php';
-
 
 
 // Chargement des Class 
@@ -54,8 +31,6 @@ require_once $classDirectory . 'category.php';
 require_once $classDirectory . 'images.php';
 
 
-
-
 //Contrôle de l'url et chargement des controlers
 
 $uri = $_SERVER['REQUEST_URI']; // $var = (condition) ? true : false
@@ -66,19 +41,19 @@ switch($uri)
     case '/' :
         require_once $controlsDirectory.'main.php';
         break;
-    case '/connexion' :
+    case '/Connexion' :
         require_once $controlsDirectory.'connexion.php';
         break;
-    case '/disconnect' :
+    case '/Disconnect' :
         require_once $controlsDirectory.'disconnect.php';
         break;
-    case '/inscription' :
+    case '/Inscription' :
         require_once $controlsDirectory.'signin.php';
         break;
-    case '/profil' :
+    case '/Profil' :
         require_once $controlsDirectory.'profil.php';
         break;
-    case '/nouvel_article' :
+    case '/Nouvel_article' :
         require_once $controlsDirectory.'new_post.php';
         break;
     case '/?theme=' . $categoryUrl :
@@ -87,42 +62,27 @@ switch($uri)
     case '/?id=' . $postId :
             require_once $controlsDirectory . 'post.php';
         break;  
-    case '/modifyPost/?id=' . $postId :
+    case '/ModifyPost/?id=' . $postId :
          require_once $controlsDirectory . 'modifyPost.php';
     break; 
-    case '/mprofil' :
+    case '/Mprofil' :
         require_once $controlsDirectory . 'modifyProfil.php';
-    break;   
-    case '/password' :
+        break;   
+    case '/Password' :
         require_once $controlsDirectory . 'modifyPassword.php';
-    break;    
-    case '/deleteUser' :
+        break;    
+    case '/DeleteUser' :
         require_once $controlsDirectory . 'deleteUser.php';
-    break;  
-    case '/deletePost' :
+        break;  
+    case '/DeletePost' :
         require_once $controlsDirectory . 'deletePost.php';
-    break; 
-    case '/sharePost' :
+        break; 
+    case '/SharePost' :
         require_once $controlsDirectory . 'sharePost.php';
-    break; 
+        break; 
 
     default : 
-    echo 'Erreur 404 : page non trouvée sur l\'internet 🤓';
-        
-    
+    echo 'Erreur 404 : page non trouvée sur l\'internet 🤓';    
 }
-
-//tests
-
-/*
-
-
-
-*/
-
-
-
-
-
 
 ?>

@@ -41,7 +41,7 @@ Class Images
         if($imgSize > $maxSize)
         {
             $_SESSION['error'] = ':: Too big, 10Mo max ::';
-            header('location: /nouvel_article');
+            header('location: /Nouvel_article');
             exit();
         }
 
@@ -54,7 +54,7 @@ Class Images
         else
         {
             $_SESSION['error'] = ':: format image non supporté (jpg, jpeg, png, gif) ::';
-            header('location: /nouvel_article');
+            header('location: /Nouvel_article');
             exit();
         }
 
@@ -124,7 +124,7 @@ Class Images
                 if($imgSize > $maxSize)
                 {
                     $_SESSION['error'] = ':: Illustration ' . $i . ' too big, 10Mo max ::';
-                    header('location: /nouvel_article');
+                    header('location: /Nouvel_article');
                     exit();
                 }
 
@@ -145,7 +145,7 @@ Class Images
                 else
                 {
                     $_SESSION['error'] = ':: format image ' . $i . ' non supporté (jpg, jpeg, png, gif) ::';
-                    header('location: /nouvel_article');
+                    header('location: /Nouvel_article');
                     exit();
                 }
             }

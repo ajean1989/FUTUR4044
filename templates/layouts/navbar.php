@@ -35,6 +35,6 @@ echo '<li class="btn"><a href="/?theme=' . $listCategory[0]->name . '">' . $list
 */
 
 
-echo '<li class="btn--nav"><a href="/disconnect">Déconnexion</a></li>';
+echo '<li class="btn--nav"><a href="/Disconnect">Déconnexion</a></li>';
 
 echo '</ul>';

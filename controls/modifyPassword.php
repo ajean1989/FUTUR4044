@@ -15,7 +15,7 @@ if(isset($_SESSION['mail']))
         if($password->password !== SHA1($_POST['password']))
         {
             $_SESSION['error'] = ':: L\'ancien mot de passe n\'est pas correcte ::';
-            header('location: /password');
+            header('location: /Password');
         }
         else
         {

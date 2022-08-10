@@ -75,7 +75,7 @@ if (isset($_POST['mail']))
     {
         $_SESSION['error'] = ':: Erreur :: 4044 :: identifiants non valides :: ' . $_SESSION['try'] . '/10 tentatives';
         $_SESSION['try']++;
-        header('location: /connexion');
+        header('location: /Connexion');
         exit();
     }
 
@@ -85,7 +85,7 @@ else
 {
     if(isset($_SESSION['mail']))
     {
-        header('location: /profil');
+        header('location: /Profil');
         exit();
     }
     else

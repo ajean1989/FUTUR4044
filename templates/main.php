@@ -75,6 +75,7 @@ echo '</div>';
 
 echo '<ul>';
 
+
 foreach($listMainPosts as $post)
 {
     if($post->public_share === 1)

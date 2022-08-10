@@ -13,5 +13,5 @@ if(isset($_SESSION['name']))
 }
 else
 {
-    header("location: /connexion");
+    header("location: /Connexion");
 }

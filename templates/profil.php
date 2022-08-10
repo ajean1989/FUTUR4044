@@ -29,8 +29,8 @@ echo
         <li>Nom : ' . $_SESSION['last_name'] . '</li>
         <li>Date de naissance : ' . $birth->format('d/M/y') . '</li>
         <li>Adresse mail : ' . $_SESSION['mail'] . '</li>
-        <li><a href = "/mprofil">Modifier le profil</a></li>
-        <li><a href = "/password">Modifier le mot de passe</a></li>
+        <li><a href = "/Mprofil">Modifier le profil</a></li>
+        <li><a href = "/Password">Modifier le mot de passe</a></li>
     </ul>
 </p>';
 
@@ -41,7 +41,7 @@ echo
 </form>
 -->
 
-<a classe="btn--form" href= "/deleteUser"> Delete </a>
+<a classe="btn--form" href= "/DeleteUser"> Delete </a>
 
 
 

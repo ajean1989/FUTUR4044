@@ -45,7 +45,7 @@ Class UsersControls extends UsersSafety
                     if($user->mail === $this->inputMail)
                     {
                         $_SESSION['error'] = ':: Modification impossible :: Adresse mail déjà enregistrée ::';
-                        header('location: /profil');
+                        header('location: /Profil');
                         exit();
                     }
                 }
@@ -58,7 +58,7 @@ Class UsersControls extends UsersSafety
                 if($user->mail === $this->inputMail)
                 {
                     $_SESSION['error'] = ':: Adresse mail déjà enregistrée ::';
-                    header('location: /inscription');
+                    header('location: /Inscription');
                     exit();
                 }
             }
@@ -72,7 +72,7 @@ Class UsersControls extends UsersSafety
         if($_POST['newPassword'] !== $_POST['newPasswordR'])
         {
             $_SESSION['error'] = ':: Les nouveaux mots de passe ne sont pas identiques ::';
-            header('location: /password');
+            header('location: /Password');
             exit;
         }
     }
